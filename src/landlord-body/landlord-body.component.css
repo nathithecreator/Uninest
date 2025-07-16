@@ -1,0 +1,39 @@
+.main-body-section{
+    padding: 5% 10%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0;
+    background-color: white;
+    font-family: Arial, sans-serif;
+}
+
+.why-title{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.a-box{
+            align-items: center; 
+            border-radius: 20px; 
+            width: 360px; 
+            height: 200px;
+            background-color: #F5F7FA;
+            margin: 15px;
+           
+}
+
+.main-title-box{
+    font-size: 22px; 
+    font-weight: 700; 
+    color: #4A4E69;
+}
+
+.sub-title-box{
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+
