@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { NavLandlordComponent } from "../nav-landlord/nav-landlord.component";
-import { LandloadLandingPageComponent } from "../landload-landing-page/landload-landing-page.component";
-import { LandlordBodyComponent } from "../landlord-body/landlord-body.component";
-import { FooterComponent } from "../footer/footer.component";
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [NavLandlordComponent, LandloadLandingPageComponent, LandlordBodyComponent, FooterComponent],
+  imports: [CommonModule,RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

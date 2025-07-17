@@ -1,0 +1,22 @@
+<app-nav-landlord></app-nav-landlord>
+
+<div class="main-log-in">
+    <div class="login-container">
+        <h1 class="login-title">Create Your Account</h1>
+        <div class="login-card">
+            <h2 class="logo-text">UniNest Go</h2>
+            <form class="login-form">
+                <input type="text" placeholder="Full Name" id="name" class="form-input">
+                <input type="text" placeholder="Company Name" id="companyName" class="form-input">
+                <input type="email" placeholder="Company Email" id="companyEmail" class="form-input">
+                <input type="tel" placeholder="Phone Number" id="phone" class="form-input">
+                <input type="password" placeholder="Password" id="password" class="form-input">
+                <button type="submit" id="registerBtn" class="login-button">Register</button>
+                <div class="register-prompt">
+                    <p>Already have an account?</p>
+                    <a id="loginBtn" (click)="gotoLogin()">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
