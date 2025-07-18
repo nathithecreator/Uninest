@@ -15,7 +15,7 @@ export class NavLandlordComponent {
 
 
   gotoLogin() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/propertiesll']);
   };
 
 

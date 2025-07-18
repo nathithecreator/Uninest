@@ -1,49 +1,51 @@
 <app-nav-dashboard></app-nav-dashboard>
 <div class="main-dashboard-section">
     <div class="white-main-section">
-        <div class="stats-boxes">
-            <div class="a-stat-box">
-                <p>Total Properties</p>
-                <p id="totalprop">3</p>
-            </div>
+         <div class="stats-boxes">
+    <div class="a-stat-box">
+      <p class="box-labels">Total Properties</p>
+      <p class="box-value" id="totalprop">3</p>
+    </div>
 
-            <div class="a-stat-box">
-                <p>Pending Applications</p>
-                <p id="totalApplications">2</p>
-            </div>
+    <div class="a-stat-box">
+      <p class="box-labels">Pending Applications</p>
+      <p class="box-value" id="totalApplications">2</p>
+    </div>
 
-            <div class="a-stat-box">
-                <p>Open Maintenance</p>
-                <p id="totalMaintenance">4</p>
-            </div>
+    <div class="a-stat-box">
+      <p class="box-labels">Open Maintenance</p>
+      <p class="box-value" id="totalMaintenance">4</p>
+    </div>
 
-            <div class="a-stat-box">
-                <p>Total Tenants</p>
-                <p id="totalTenants">5</p>
-            </div>
-
-        </div>
+    <div class="a-stat-box">
+      <p class="box-labels">Total Tenants</p>
+      <p class="box-value" id="totalTenants">5</p>
+    </div>
+  </div>
 
         <div class="recent-section">
-            <p>Recent Activity</p>
-            <div class="grey-line" style="width: 80%; height: 2px; margin-top: 40px; margin-bottom: 40px;"></div>
+            <h3 class="section-title">Recent Activity</h3>
+            <div class="divider"></div>
 
-            <div class="a-notification" style="background-color: #F5F7FA; display: flex; border-color: gray;">
-                <div class="logo-section-notification">
-                    <!-- boostrap-tools-logo -->
+            <div class="activity-card">
+                <div class="activity-icon">
+                <i class="bi bi-file-earmark-text"></i>
                 </div>
-                <div class="description-section" style="display: flex; flex-direction: column;">
-                    <div class="title">
-                        <p>New Application for Modern Studio Apartment</p>
-                    </div>
-                    <div class="sub-title" style="color: grey;">
-                        <p>Student: James Wonders - 1 day ago</p>
-                    </div>
+                <div class="activity-content">
+                <h4 class="activity-title">New Application for Modern Studio Apartment</h4>
+                <p class="activity-subtitle">Student: James Wonders - 1 day ago</p>
                 </div>
-
-                <div>
-                    <button class="viewBtn" style="background-color: blue; border-radius: 15px;">View</button>
+                <button class="view-button">View</button>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">
+                <i class="bi bi-file-earmark-text"></i>
                 </div>
+                <div class="activity-content">
+                <h4 class="activity-title">New Application for Modern Studio Apartment</h4>
+                <p class="activity-subtitle">Student: James Wonders - 1 day ago</p>
+                </div>
+                <button class="view-button">View</button>
             </div>
         </div>
     </div>

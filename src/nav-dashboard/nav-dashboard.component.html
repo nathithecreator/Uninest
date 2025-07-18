@@ -1,15 +1,18 @@
 <div class="main-nav">
   <div class="titles-section">
     <p class="a-nav active" (click)="setActive($event)">Overview</p>
-    <p class="a-nav" (click)="setActive($event)">Properties</p>
+    <p class="a-nav" (click)="setActive($event)" (click)="gotoProperties()">Properties</p>
     <p class="a-nav" (click)="setActive($event)">Applications</p>
     <p class="a-nav" (click)="setActive($event)">Maintenance</p>
     <p class="a-nav" (click)="setActive($event)">Tenants</p>
 
-    <div class="notification">
+    <div class="right-section" style="display: flex; gap: 30px;">
+        <div class="notification">
       <i class="bi bi-bell-fill"></i>
       <span class="notification-badge">3</span>
     </div>
     <div class="profile-picture">A</div>
+    </div>
+    
   </div>
 </div>

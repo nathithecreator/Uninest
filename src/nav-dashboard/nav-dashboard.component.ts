@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-dashboard',
@@ -13,5 +14,11 @@ export class NavDashboardComponent {
     
     const clickedItem = event.target as HTMLElement;
     clickedItem.classList.add('active');
+  }
+
+  router = inject(Router);
+
+  gotoProperties(){
+   this.router.navigate(['/propertiesll']);
   }
 }
