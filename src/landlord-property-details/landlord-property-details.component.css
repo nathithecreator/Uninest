@@ -14,7 +14,10 @@ app-nav-dashboard {
   flex-direction: column;
   justify-content: flex-start;
   box-sizing: border-box;
-  background-color: white;
+  background-image: url('../assets/images/uninestback1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: Arial, sans-serif;
   margin-top: 80px;
 }
@@ -22,7 +25,7 @@ app-nav-dashboard {
 .white-main-section {
   width: 80vw;
   min-height: 90vh;
-  background-color: #F5F7FA;
+  background-color: #fff;
   margin: 30px auto;
   padding: 30px;
   border-radius: 15px;
@@ -33,18 +36,26 @@ app-nav-dashboard {
   font-size: 30px;
   color: #4A90E2;
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
 .section-title {
   font-size: 22px;
   color: #333;
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
 .status-title {
   font-size: 25px;
-  font-weight: bold;
+  font-weight: 500;
   margin-bottom: 20px;
+}
+
+.gobackBtn{
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
 }
 
 /* Divider */
@@ -56,7 +67,7 @@ app-nav-dashboard {
 
 /* Property Card */
 .property-details-card {
-  background-color: white;
+  background-color: #F5F7FA;
   border-radius: 15px;
   padding: 30px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -77,7 +88,6 @@ app-nav-dashboard {
   height: 300px;
   width: 100%;
   border-radius: 10px;
-  background-image: url('https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -100,25 +110,30 @@ app-nav-dashboard {
   font-weight: 600;
   margin-right: 10px;
   min-width: 120px;
+  color: #4A4E69;
 }
 
 .status-badge {
   padding: 5px 15px;
-  border-radius: 20px;
+  border-radius: 15px;
   font-weight: 600;
+  transform: translateX(15px);
 }
 
 .status-badge.active {
   background-color: #ffe44b;
-  color: #cdae00;
+  color: #000000;
+ 
 }
 
 .status-value {
   font-weight: 500;
+  transform: translateX(10px);
 }
 
 .status-value.paid {
   color: green;
+  transform: translateX(40px);
 }
 
 /* Action Buttons */
@@ -126,6 +141,7 @@ app-nav-dashboard {
   display: flex;
   gap: 15px;
   margin-top: 20px;
+  flex-direction: column;
 }
 
 .edit-btn, .deactivate-btn {
@@ -174,6 +190,7 @@ app-nav-dashboard {
   font-weight: 600;
   margin-right: 5px;
   min-width: 80px;
+  color: #4A4E69;
 }
 
 /* Description Section */

@@ -1,0 +1,353 @@
+
+app-nav-dashboard {
+  position: fixed;
+  z-index: 555;
+  top: 0;
+  width: 100%;
+}
+
+.main-dashboard-section {
+  padding: 2rem 0;
+  min-height: 150vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  background-image: url('../assets/images/uninestback1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-top: 80px;
+}
+
+.white-main-section {
+  width: 90%;
+  max-width: 1200px;
+  min-height: auto;
+  background-color: #fff;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-header {
+  margin-bottom: 2rem;
+  position: relative; /* This is crucial for absolute positioning of child elements */
+}
+
+.property-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 1.5rem 0;
+}
+
+/* Tenant Card */
+.tenant-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+}
+
+.tenant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.tenant-name {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+}
+
+.tenant-subtitle {
+  color: #6c757d;
+  margin: 0;
+}
+
+/* Lease Status Badge */
+.lease-status-badge {
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-active {
+  background-color: #EBFBEE;
+  color: #40C057;
+}
+
+.status-expiring {
+  background-color: #FFF4E5;
+  color: #E67E22;
+}
+
+.status-expired {
+  background-color: #FFF5F5;
+  color: #FA5252;
+}
+
+/* Tenant Details Grid */
+.tenant-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.detail-card {
+  background-color: #F8F9FA;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s;
+}
+
+.detail-card:hover {
+  background-color: #F1F3F5;
+}
+
+.detail-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #E7F5FF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4A90E2;
+  font-size: 1.25rem;
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+/* Lease Section */
+.lease-section {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.goback-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #4A90E2;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.goback-btn:hover {
+  color: #3a7bc8;
+}
+
+.lease-status-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.lease-status-card {
+  background-color: #F8F9FA;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-left: 4px solid;
+}
+
+.lease-status-card.status-active {
+  border-left-color: #40C057;
+}
+
+.lease-status-card.status-expiring {
+  border-left-color: #E67E22;
+}
+
+.lease-status-card.status-expired {
+  border-left-color: #FA5252;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+}
+
+.status-icon i {
+  color: inherit;
+}
+
+.lease-status-card.status-active .status-icon {
+  color: #40C057;
+}
+
+.lease-status-card.status-expiring .status-icon {
+  color: #E67E22;
+}
+
+.lease-status-card.status-expired .status-icon {
+  color: #FA5252;
+}
+
+.status-content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 0.25rem 0;
+}
+
+.status-content p {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.btn-payment-reminder,
+.btn-renewal-offer,
+.btn-renewed {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-payment-reminder {
+  background-color: #F5A623;
+  color: white;
+}
+
+.btn-payment-reminder:hover {
+  background-color: #E0911F;
+}
+
+.btn-renewal-offer {
+  background-color: #4A90E2;
+  color: white;
+}
+
+.btn-renewal-offer:hover {
+  background-color: #3a7bc8;
+}
+
+.btn-renewed {
+  background-color: #6BCB77;
+  color: white;
+}
+
+.btn-renewed:hover {
+  background-color: #5AB767;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .white-main-section {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tenant-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .tenant-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .lease-status-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .property-title {
+    font-size: 1.5rem;
+  }
+  
+  .tenant-name {
+    font-size: 1.5rem;
+  }
+  
+  .white-main-section {
+    padding: 1.25rem;
+  }
+  
+  .tenant-card {
+    padding: 1.5rem;
+  }
+  
+  .btn-payment-reminder,
+  .btn-renewal-offer,
+  .btn-renewed {
+    font-size: 0.9rem;
+  }
+}

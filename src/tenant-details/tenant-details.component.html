@@ -1,0 +1,133 @@
+<app-nav-dashboard></app-nav-dashboard>
+<div class="main-dashboard-section">
+  <div class="white-main-section">
+    <div class="form-header">
+  <h1 class="property-title">Tenant Details</h1>
+  <span class="goback-btn" (click)="goBack()" aria-label="Close">
+    <i class="bi bi-arrow-left"></i> Back to Tenants
+  </span>
+  <div class="divider"></div>
+</div>
+
+    <div class="tenant-card">
+      <div class="tenant-header">
+        <div>
+          <h2 class="tenant-name">James Wonders</h2>
+          <p class="tenant-subtitle">Detailed information about the tenant and their lease</p>
+        </div>
+        <div class="lease-status-badge status-active">Active</div>
+      </div>
+
+      <div class="tenant-details-grid">
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-house"></i>
+          </div>
+          <div>
+            <div class="detail-label">Property</div>
+            <div class="detail-value">Modern Studio Apartment, 22 Park Avenue</div>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-envelope"></i>
+          </div>
+          <div>
+            <div class="detail-label">Email</div>
+            <div class="detail-value">James.w&#64;gmail.com</div>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-telephone"></i>
+          </div>
+          <div>
+            <div class="detail-label">Contact Number</div>
+            <div class="detail-value">071 234 5678</div>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-cash-stack"></i>
+          </div>
+          <div>
+            <div class="detail-label">Monthly Rent</div>
+            <div class="detail-value">R 5,500</div>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-calendar-check"></i>
+          </div>
+          <div>
+            <div class="detail-label">Rent Due Date</div>
+            <div class="detail-value">2025-07-01</div>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-wallet2"></i>
+          </div>
+          <div>
+            <div class="detail-label">Last Payment</div>
+            <div class="detail-value">2025-06-28</div>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-calendar-date"></i>
+          </div>
+          <div>
+            <div class="detail-label">Lease Start Date</div>
+            <div class="detail-value">2024-08-01</div>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-calendar-x"></i>
+          </div>
+          <div>
+            <div class="detail-label">Lease End Date</div>
+            <div class="detail-value">2025-07-31</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lease-section">
+        <h3 class="section-title">
+          <i class="bi bi-file-earmark-text"></i> Lease Status
+        </h3>
+        <div class="lease-status-container">
+          <div class="lease-status-card status-active">
+            <div class="status-icon">
+              <i class="bi bi-check-circle"></i>
+            </div>
+            <div class="status-content">
+              <h4>Active Lease</h4>
+              <p>Lease is currently active and in good standing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-payment-reminder">
+          <i class="bi bi-bell"></i> Send Payment Reminder
+        </button>
+        <button class="btn-renewal-offer">
+          <i class="bi bi-file-earmark-plus"></i> Send Lease Renewal Offer
+        </button>
+        <button class="btn-renewed">
+          <i class="bi bi-check-circle"></i> Mark Lease Renewed
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

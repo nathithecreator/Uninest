@@ -1,27 +1,63 @@
 <app-nav-dashboard></app-nav-dashboard>
 <div class="main-dashboard-section">
     <div class="white-main-section">
-         <div class="stats-boxes">
-    <div class="a-stat-box">
-      <p class="box-labels">Total Properties</p>
-      <p class="box-value" id="totalprop">3</p>
-    </div>
+      
 
-    <div class="a-stat-box">
-      <p class="box-labels">Pending Applications</p>
-      <p class="box-value" id="totalApplications">2</p>
-    </div>
+      <div class="welcome-banner">
+        <div class="welcome-content">
+          <div class="welcome-message">
+            <h2 class="greeting">Good &nbsp; <span id="time-of-day">{{timeOfDay}}</span><span class="username">{{username}}</span></h2>
+            <p class="welcome-text">Welcome to <span class="brand">UniNest-Go</span></p>
+          </div>
+          
+          <div class="time-date-card">
+            <div class="current-time">{{currentTime}}</div>
+            <div class="current-date">{{currentDate}}</div>
+            <div class="date-icon">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="a-stat-box">
-      <p class="box-labels">Open Maintenance</p>
-      <p class="box-value" id="totalMaintenance">4</p>
-    </div>
 
-    <div class="a-stat-box">
-      <p class="box-labels">Total Tenants</p>
-      <p class="box-value" id="totalTenants">5</p>
+    <div class="stats-boxes">
+      <div class="a-stat-box">
+        <div class="box-icon-container">
+          <i class="bi bi-house-door box-icon"></i>
+          <div class="notification-pulse"></div>
+        </div>
+        <p class="box-labels">Total Properties</p>
+        <p class="box-value" id="totalprop">3</p>
+      </div>
+
+      <div class="a-stat-box">
+        <div class="box-icon-container">
+          <i class="bi bi-file-earmark-text box-icon"></i>
+          <div class="notification-pulse" *ngIf="pendingApplications > 0"></div>
+        </div>
+        <p class="box-labels">Pending Applications</p>
+        <p class="box-value" id="totalApplications">2</p>
+      </div>
+
+      <div class="a-stat-box">
+        <div class="box-icon-container">
+          <i class="bi bi-tools box-icon"></i>
+          <div class="notification-pulse" *ngIf="openMaintenance > 0"></div>
+        </div>
+        <p class="box-labels">Open Maintenance</p>
+        <p class="box-value" id="totalMaintenance">4</p>
+      </div>
+
+      <div class="a-stat-box">
+        <div class="box-icon-container">
+          <i class="bi bi-people box-icon"></i>
+          <div class="notification-pulse"></div>
+        </div>
+        <p class="box-labels">Total Tenants</p>
+        <p class="box-value" id="totalTenants">5</p>
+      </div>
     </div>
-  </div>
 
         <div class="recent-section">
             <h3 class="section-title">Recent Activity</h3>

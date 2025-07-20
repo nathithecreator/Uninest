@@ -1,0 +1,69 @@
+<app-nav-dashboard></app-nav-dashboard>
+<div class="main-dashboard-section">
+  <div class="white-main-section">
+    <div class="form-header">
+      <button class="goback-btn" (click)="goBack()" aria-label="Close">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <h1 class="property-title">Application Details</h1>
+      <div class="divider"></div>
+    </div>
+
+    <div class="application-card">
+      <div class="application-header">
+        <h2 class="application-property">Modern Studio Apartment</h2>
+        <div class="application-status status-pending">Pending Review</div>
+      </div>
+
+      <div class="application-details-grid">
+        <div class="detail-item">
+          <span class="detail-label">Applicant Name</span>
+          <span class="detail-value">James Wonders</span>
+        </div>
+        
+        <div class="detail-item">
+          <span class="detail-label">Email</span>
+          <span class="detail-value">james.w&commat;example.com</span>
+        </div>
+        
+        <div class="detail-item">
+          <span class="detail-label">University</span>
+          <span class="detail-value">University of the Witwatersrand</span>
+        </div>
+        
+        <div class="detail-item">
+          <span class="detail-label">Applied On</span>
+          <span class="detail-value">July 8, 2025</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 class="section-title">Personal Statement</h3>
+        <p class="personal-statement">
+          I am a third-year engineering student at UJ, looking for a quiet and conducive environment 
+          to focus on my studies. I am responsible, tidy, and have excellent references from my 
+          previous landlord. I am also actively involved in campus societies and value a respectful 
+          living space.
+        </p>
+      </div>
+
+      <div class="detail-section">
+        <h3 class="section-title">Documents</h3>
+        <div class="documents-list">
+          <span class="document-badge">Academic Transcript</span>
+          <span class="document-badge">ID Copy</span>
+          <span class="document-badge">Previous Landlord Reference</span>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-approve">
+          <i class="bi bi-check-circle"></i> Approve Application
+        </button>
+        <button class="btn-reject">
+          <i class="bi bi-x-circle"></i> Reject Application
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

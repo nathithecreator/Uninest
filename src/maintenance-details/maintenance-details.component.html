@@ -1,0 +1,124 @@
+<app-nav-dashboard></app-nav-dashboard>
+<div class="main-dashboard-section">
+  <div class="white-main-section">
+    <div class="form-header">
+      <button class="goback-btn" (click)="goBack()" aria-label="Close">
+        <i class="bi bi-arrow-left"></i> Back to Requests
+      </button>
+      <h1 class="property-title">Maintenance Request #MR-2025-0142</h1>
+      <div class="divider"></div>
+    </div>
+
+    <div class="maintenance-card">
+      <div class="maintenance-header">
+        <div>
+          <h2 class="maintenance-title">Kitchen Faucet Leak</h2>
+          <div class="property-address">
+            <i class="bi bi-geo-alt"></i> Modern Studio Apartment, 22 Park Avenue
+          </div>
+        </div>
+        <div class="status-badge status-open">Open</div>
+      </div>
+
+      <div class="maintenance-details-grid">
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-tools"></i>
+          </div>
+          <div>
+            <div class="detail-label">Issue Type</div>
+            <div class="detail-value">Plumbing</div>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-calendar"></i>
+          </div>
+          <div>
+            <div class="detail-label">Reported On</div>
+            <div class="detail-value">July 8, 2025 at 2:45 PM</div>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="detail-icon">
+            <i class="bi bi-person"></i>
+          </div>
+          <div>
+            <div class="detail-label">Reported By</div>
+            <div class="detail-value">James Wonders (Tenant)</div>
+          </div>
+        </div>
+
+       
+      </div>
+
+      <div class="description-section">
+        <h3 class="section-title">
+          <i class="bi bi-card-text"></i> Issue Description
+        </h3>
+        <div class="description-content">
+          <p>The kitchen sink faucet has a persistent drip, and the water pressure seems lower than usual. It's been dripping for about two days now. The leak appears to be coming from the base of the faucet when the water is turned on.</p>
+          <p>This is causing water to pool under the sink and has started to damage the cabinet floor. The dripping is also quite loud at night.</p>
+        </div>
+      </div>
+
+      <div class="attachments-section">
+        
+        <!-- <div class="attachments-grid">
+          <div class="attachment-thumbnail" *ngFor="let img of [1,2,3]">
+            <img src="https://via.placeholder.com/300x200?text=Leak+Photo+{{img}}" alt="Leak photo evidence">
+            <button class="view-attachment">
+              <i class="bi bi-zoom-in"></i> View
+            </button>
+          </div>
+        </div> -->
+      </div>
+
+      <div class="status-section">
+        <h3 class="section-title">
+          <i class="bi bi-clipboard-check"></i> Update Status
+        </h3>
+        <div class="status-options">
+          <button class="status-option" [class.active]="selectedStatus === 'open'">
+            Open
+          </button>
+          <button class="status-option" [class.active]="selectedStatus === 'in-progress'">
+            In Progress
+          </button>
+          <button class="status-option" [class.active]="selectedStatus === 'resolved'">
+            Resolved
+          </button>
+        </div>
+        
+        <div class="status-form" *ngIf="selectedStatus !== 'open'">
+          <div class="form-group">
+            <label for="technician">Assign Technician</label>
+            <select id="technician" class="form-control">
+              <option value="">Select technician</option>
+              <option value="tech1">John Plumbing (Plumber)</option>
+              <option value="tech2">Sarah Electrical (Electrician)</option>
+              <option value="tech3">Mike General (General Maintenance)</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="statusNotes">Notes</label>
+            <textarea id="statusNotes" class="form-control" rows="3" 
+                      placeholder="Add any notes about the status update..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-save">
+            <i class="bi bi-tools"></i> Assign Technician
+        </button>
+        <button class="btn-cancel">
+          <i class="bi bi-check-circle"></i> Mark as Resolved
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

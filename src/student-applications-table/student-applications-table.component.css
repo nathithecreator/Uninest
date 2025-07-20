@@ -1,0 +1,139 @@
+app-nav-dashboard {
+  position: fixed;
+  z-index: 555;
+  top: 0;
+  width: 100%;
+}
+
+.main-dashboard-section {
+  padding: 1% 0;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  background-image: url('../assets/images/uninestback1.png');
+  font-family: Arial, sans-serif;
+  margin-top: 80px;
+}
+
+.white-main-section {
+  width: 80vw;
+  min-height: 90vh;
+  background-color: #fff;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+/* Typography */
+.property-title {
+  font-size: 30px;
+  color: #0099FF;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.under-sub-title{
+    font-family: "Mulish", sans-serif;
+    font-style: normal;
+}
+
+.section-title {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.status-title {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.gobackBtn{
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 20px 0;
+}
+
+/* Table styles */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-striped-bg: rgba(0, 0, 0, 0.02);
+}
+
+.table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background-color: #0099FF;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+tbody{
+    font-family: "Mulish", sans-serif;
+}
+
+/* Badge styles */
+.badge {
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 500;
+}
+
+/* Avatar styles */
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pagination styles */
+.page-link {
+  cursor: pointer;
+  min-width: 38px;
+  text-align: center;
+}
+
+.page-item.active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* Button styles */
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.pending-status{
+    background-color: #f9e1b5;
+    color: #DFA63A;
+}
+
+.reject-status{
+    background-color: #facfd6;
+    color: #EA8D9D;
+}
+
+.accept-status{
+    background-color: #b9f3d0;
+    color: #54B87C;
+}
