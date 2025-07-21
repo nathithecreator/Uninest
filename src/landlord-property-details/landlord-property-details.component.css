@@ -116,13 +116,14 @@ app-nav-dashboard {
 .status-badge {
   padding: 5px 15px;
   border-radius: 15px;
-  font-weight: 600;
-  transform: translateX(15px);
+  font-weight: 500;
+  transform: translateX(28px);
+  font-size: 13px;
 }
 
 .status-badge.active {
-  background-color: #ffe44b;
-  color: #000000;
+  background-color: #FFF7ED;
+  color: #F97316;
  
 }
 
