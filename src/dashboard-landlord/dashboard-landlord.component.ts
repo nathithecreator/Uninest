@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NavDashboardComponent } from "../nav-dashboard/nav-dashboard.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard-landlord',
-  imports: [NavDashboardComponent],
+  imports: [NavDashboardComponent,CommonModule],
   templateUrl: './dashboard-landlord.component.html',
   styleUrl: './dashboard-landlord.component.css'
 })
@@ -13,6 +14,9 @@ export class DashboardLandlordComponent implements OnInit {
   currentDate: string = '';
   timeOfDay: string = 'day';
   username: string = 'Ndivho';
+
+   openMaintenance: number = 1;
+   pendingApplications: number = 1;
 
   ngOnInit() {
     this.updateTime();

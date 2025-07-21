@@ -2,143 +2,113 @@
 <div class="main-dashboard-section">
   <div class="white-main-section">
     <div class="form-header">
-     
-      <h1 class="property-title">Your Profile</h1>
+      <h1 class="page-title">Edit Your Profile</h1>
       <div class="divider"></div>
     </div>
 
-    <div class="profile-card">
-      <div class="profile-header">
-        <div class="profile-avatar">
-          <div class="avatar-initials">JW</div>
-          
+    <form class="profile-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="John">
         </div>
-        <div class="profile-info">
-          <h2 class="profile-name">James Wonders</h2>
-          <div class="account-status status-active">
-            <i class="bi bi-check-circle"></i> Active Account
-          </div>
-          <p class="member-since">Member since June 2025</p>
-        </div>
-      </div>
-
-      <div class="profile-details-grid">
-        <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-person"></i>
-          </div>
-          <div>
-            <div class="detail-label">First Name</div>
-            <div class="detail-value">James</div>
-          </div>
-        </div>
-
-        <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-person"></i>
-          </div>
-          <div>
-            <div class="detail-label">Surname</div>
-            <div class="detail-value">Wonders</div>
-          </div>
-        </div>
-
-        <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-gender-ambiguous"></i>
-          </div>
-          <div>
-            <div class="detail-label">Gender</div>
-            <div class="detail-value">Male</div>
-          </div>
-        </div>
-
-        <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-credit-card"></i>
-          </div>
-          <div>
-            <div class="detail-label">ID/Passport</div>
-            <div class="detail-value">9201015800088</div>
-          </div>
-        </div>
-
-        <div class="detail-card full-width">
-          <div class="detail-icon">
-            <i class="bi bi-geo-alt"></i>
-          </div>
-          <div>
-            <div class="detail-label">Address</div>
-            <div class="detail-value">22 Park Avenue, Sandton, Johannesburg</div>
-          </div>
-        </div>
-
-        <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-globe"></i>
-          </div>
-          <div>
-            <div class="detail-label">Country</div>
-            <div class="detail-value">South Africa</div>
-          </div>
-        </div>
-
-        <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-map"></i>
-          </div>
-          <div>
-            <div class="detail-label">Province</div>
-            <div class="detail-value">Gauteng</div>
-          </div>
-        </div>
-
-        <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-building"></i>
-          </div>
-          <div>
-            <div class="detail-label">City</div>
-            <div class="detail-value">Johannesburg</div>
-          </div>
-        </div>
-
-        <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-briefcase"></i>
-          </div>
-          <div>
-            <div class="detail-label">Company Name</div>
-            <div class="detail-value">Tech Solutions Ltd</div>
-          </div>
-        </div>
-
-        <div class="detail-card">
-          <div class="detail-icon">
-            <i class="bi bi-telephone"></i>
-          </div>
-          <div>
-            <div class="detail-label">Phone Number</div>
-            <div class="detail-value">+27 83 456 7890</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="bio-section">
-        <h3 class="section-title">
-          <i class="bi bi-file-text"></i> About Me
-        </h3>
-        <div class="bio-content">
-          <p>Property developer with 10 years experience in residential real estate. Specializing in student accommodation and affordable housing solutions. Passionate about creating comfortable living spaces that meet modern standards.</p>
-        </div>
-      </div>
-
-      <div class="action-buttons">
-        <button class="btn-edit">
-          <i class="bi bi-pencil"></i> Edit Profile
-        </button>
         
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" placeholder="Peterson">
+        </div>
       </div>
-    </div>
+
+      <!-- Add this with your other form groups -->
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select id="gender" class="form-select">
+          <option value="" disabled selected>Select your gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Race</label>
+        <select id="gender" class="form-select">
+          <option value="" disabled selected>Select your race</option>
+          <option value="black">Black</option>
+          <option value="white">White</option>
+          <option value="coloured">Coloured</option>
+           <option value="indian">Indian</option>
+           <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="name@business.co.za">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Age </label>
+        <input type="number" id="age" placeholder="25">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="072 134 4545">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Identification Number/Passport</label>
+        <input type="tel" id="phone" placeholder="9909115074082">
+      </div>
+
+      <div class="form-group">
+        <label for="company">Company Name</label>
+        <input type="text" id="company" placeholder="Business Name">
+      </div>
+
+      <div class="form-group">
+        <label for="address">Business Address</label>
+        <textarea id="address" rows="3" placeholder="123 Church Street"></textarea>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" placeholder="Enter your city">
+        </div>
+  
+        <div class="form-group">
+          <label for="province">Province/State</label>
+          <input type="text" id="province" placeholder="Enter your province or state">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" id="province" placeholder="Enter your Country">
+        </div>
+        
+        <div class="form-group">
+          <label for="postalCode">Postal/Zip Code</label>
+          <input type="text" id="postalCode" placeholder="Enter your postal or zip code">
+        </div>
+      </div>
+
+       <div class="form-row">
+      
+        
+        <div class="form-group">
+          <label for="bio">Bio</label>
+          <input type="text" id="bio" placeholder="Tell us more about yourself">
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-btn">Cancel</button>
+        <button type="submit" class="save-btn">Save Changes</button>
+      </div>
+    </form>
   </div>
 </div>

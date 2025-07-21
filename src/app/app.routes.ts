@@ -13,6 +13,9 @@ import { MaintenanceDetailsComponent } from '../maintenance-details/maintenance-
 import { TenantsTableComponent } from '../tenants-table/tenants-table.component';
 import { TenantDetailsComponent } from '../tenant-details/tenant-details.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { ProfileEditComponent } from '../profile-edit/profile-edit.component';
+import { MessageComponent } from '../message/message.component';
+import { NotificationsComponent } from '../notifications/notifications.component';
 
 export const routes: Routes = [
         { path: '', redirectTo: 'LandingPage', pathMatch: 'full' },
@@ -29,6 +32,10 @@ export const routes: Routes = [
           { path: 'maintenancedetails', component: MaintenanceDetailsComponent },
           { path: 'tenants', component: TenantsTableComponent },
           { path: 'tenant', component: TenantDetailsComponent },
-          { path: 'profile', component: ProfileComponent }
+          { path: 'profile', component: ProfileComponent },
+          { path: 'profileedit', component: ProfileEditComponent },
+          { path: 'message', component: MessageComponent },
+          { path: 'notifications', component: NotificationsComponent }
+
 
 ];

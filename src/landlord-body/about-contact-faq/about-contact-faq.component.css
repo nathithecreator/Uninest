@@ -8,7 +8,7 @@
     box-sizing: border-box;
     margin: 0;
     background-color: #F5F7FA;
-    font-family: Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .inner-about-section{
@@ -22,7 +22,7 @@
     height: 100vh;
     margin-top: 100px;
     background-color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .inner-contact-us{

@@ -19,12 +19,11 @@ app-nav-dashboard {
 
 .white-main-section {
   width: 80vw;
-  height: 90vh;
+  height: 100%;
   background-color: #F5F7FA;
   margin: 0 auto;
   padding: 30px;
   border-radius: 15px;
-  margin-top: 30px;
   bottom: 0;
 }
 
