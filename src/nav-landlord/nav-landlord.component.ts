@@ -9,14 +9,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './nav-landlord.component.css'
 })
 export class NavLandlordComponent {
+  mobileMenuOpen = false;
 
-
-  router = inject(Router);
-
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
 
   gotoLogin() {
-    this.router.navigate(['/addpropertyll']);
-  };
-
-
+    // Replace with your routing logic
+    console.log('Redirecting to login...');
+  }
 }

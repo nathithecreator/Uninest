@@ -1,47 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-</head>
-<body>
-    <div class="main-nav" 
-    style="width: 100%; 
-    height: 80px; 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    box-shadow: 0 2px 5px rgba(134, 134, 134, 0.929);
-    padding: 0 5%;
-    box-sizing: border-box;
-    background-color: #F5F7FA;">
-        <div class="logo-section">
-            <p class="title-uninest"
-            style="color: #4A90E2; 
-                   font-size: 24px;
-                   font-weight: bold;
-                   margin: 0;"
-            >UniNest Go</p>
-        </div>
-        <div class="titles-section"
-        style="display: flex;
-               gap: 30px;
-               font-size: 12px;
-               font-weight: 600;
-               align-items: center;">
-            <p style="margin: 0; cursor: pointer;">About Us</p>
-            <p style="margin: 0; cursor: pointer;">Contact Us</p>
-            <p style="margin: 0; cursor: pointer;">FAQ</p>
-            <p style="margin: 0; cursor: pointer;" (click)="gotoLogin()">Log In</p>
-        </div>
+<div class="main-nav">
+  <div class="logo-section">
+    <p class="title-uninest">UniNest Go</p>
+  </div>
+  <div class="titles-section">
+    <div class="desktop">
+      <p>About Us</p>
+      <p>Contact Us</p>
+      <p>FAQ</p>
+      <p (click)="gotoLogin()">Log In</p>
     </div>
-</body>
-</html>
+    <div class="hamburger" (click)="toggleMobileMenu()">
+      <i class="bi bi-list"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile menu -->
+<div *ngIf="mobileMenuOpen" class="mobile-menu">
+  <p>About Us</p>
+  <p>Contact Us</p>
+  <p>FAQ</p>
+  <p (click)="gotoLogin()">Log In</p>
+</div>

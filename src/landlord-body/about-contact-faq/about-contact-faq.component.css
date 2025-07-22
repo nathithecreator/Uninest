@@ -1,6 +1,13 @@
-.main-about-section{
-     padding: 5% 0%;
-    height: 120vh;
+/* General Resets and Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* About Section */
+.main-about-section {
+    padding: 5% 0%;
+    height: 140vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -9,28 +16,132 @@
     margin: 0;
     background-color: #F5F7FA;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: center; /* Added for text-align property */
 }
 
-.inner-about-section{
+.inner-about-section {
+    background-color: white;
+    height: 80%; /* Adjusted for better responsiveness */
+    width: 80%; /* Adjusted for better responsiveness */
     margin: 0 auto;
     border-radius: 15px;
-    
+    padding-top: 30px; /* Added for internal spacing */
+    box-sizing: border-box; /* Ensures padding is included in height/width */
 }
 
-.out-contact-us{
+.why-title {
+    color: #4A90E2;
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.blue-line {
+    width: 100px;
+    height: 5px;
+    background-color: #4A90E2;
+    margin: 20px auto;
+}
+
+.image-people {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200px;
+    width: 400px;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.image-people-about {
+    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/peoplesImg.png');
+}
+
+.description-about {
+    margin-top: 60px;
+    margin-left: 190px;
+    margin-right: 190px;
+    color: #4A4E69;
+    font-size: 24px;
+}
+
+.action-button-about {
+    height: 60px;
+    width: 200px;
+    background-color: #4A90E2;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.action-button-about p {
+    margin: 0;
+}
+
+/* Contact Us Section */
+.out-contact-us {
     width: 100vw;
     height: 100vh;
     margin-top: 100px;
     background-color: white;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    text-align: center; /* Added for text-align property */
 }
 
-.inner-contact-us{
+.inner-contact-us {
+    height: 80vh;
+    width: 80vw;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: #F5F7FA;
     padding-top: 50px;
+    box-sizing: border-box; /* Ensures padding is included in height/width */
 }
 
-.in-faq{
-     padding: 5% 0%;
+.contact-title {
+    color: #009C13;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.green-line {
+    width: 100px;
+    height: 5px;
+    background-color: #009C13;
+    margin: 20px auto;
+}
+
+.image-people-contact {
+    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/caller.png');
+}
+
+.action-button-contact {
+    height: 60px;
+    width: 200px;
+    background-color: #009C13;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.action-button-contact p {
+    margin: 0;
+}
+
+/* FAQ Section */
+.in-faq {
+    padding: 5% 0%;
     height: 120vh;
     width: 100vw;
     display: flex;
@@ -40,19 +151,81 @@
     margin: 0;
     background-color: #F5F7FA;
     font-family: Arial, sans-serif;
+    text-align: center; /* Added for text-align property */
 }
 
-.tutorial{
-     padding: 5% 0%;
+.faq-title {
+    color: #F5A623;
+}
+
+.faq-line {
+    background-color: #F5A623;
+}
+
+.image-people-faq {
+    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/talkingPeople.png');
+}
+
+.action-button-faq {
+    height: 60px;
+    width: 200px;
+    background-color: #F5A623;
+    border-radius: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.action-button-faq p {
+    margin: 0;
+}
+
+/* Tutorial Section */
+.tutorial {
+    padding: 5% 0%;
     height: 100vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
+    gap: 90px; /* Merged from inline style */
     justify-content: center;
     box-sizing: border-box;
     margin: 0;
     background-color: #4A90E2;
     font-family: Arial, sans-serif;
+    text-align: center; /* Merged from inline style */
+}
+
+.tutorial-main-title {
+    color: white;
+    font-size: 33px;
+    font-weight: bold;
+    margin: 0; /* Ensures no default margin from <p> tag */
+}
+
+.tutorial-steps-container {
+    width: 80vw;
+    height: 60vh;
+    display: flex;
+    gap: 60px;
+    color: white;
+    margin: 0 auto;
+    justify-content: space-around; /* Distribute items evenly */
+    align-items: flex-start; /* Align items to the start of the cross-axis */
+}
+
+.the-first-instruction,
+.the-second-instruction,
+.the-third-instruction {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally within each step */
+    text-align: center; /* Center text within each step */
+    flex: 1; /* Allows columns to grow and shrink equally */
 }
 
 .number-tutorial {
@@ -64,7 +237,7 @@
     align-items: center;
     justify-content: center;
     margin: 20px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* optional for a subtle shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .the-number {
@@ -74,8 +247,7 @@
     margin: 0;
 }
 
-
-.picture-tutorial{
+.picture-tutorial {
     width: 160px;
     height: 160px;
     border-radius: 50%;
@@ -83,5 +255,138 @@
     align-items: center;
     justify-content: center;
     margin: 20px auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* optional for a subtle shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-pic-1 {
+    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/111.png');
+}
+
+.tutorial-pic-2 {
+    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/222.png');
+}
+
+.tutorial-pic-3 {
+    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/333.png');
+}
+
+.tutorial-topic-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0; /* Remove default top margin */
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+.description-tutorial {
+    margin-top: 50px; /* Specific margin for first tutorial step */
+    /* Other descriptions might need adjustment if they have different spacing */
+}
+
+/* Adjustments for specific description margins */
+.the-second-instruction .description-tutorial,
+.the-third-instruction .description-tutorial {
+    margin-top: 70px; /* Applied to second and third based on original inline style */
+}
+
+
+
+/* mobile version */
+@media (max-width: 650px) {
+  /* General adjustments */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* About Section Mobile Fixes */
+  .main-about-section {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 0;
+  }
+
+  .inner-about-section {
+    width: 90%;
+    height: auto;
+    padding: 20px 15px;
+    margin: 0 auto;
+  }
+
+   
+
+  .why-title {
+    font-size: 28px;
+    margin-top: 15px;
+  }
+
+  .blue-line {
+    width: 60px;
+    height: 4px;
+    margin: 10px auto 20px;
+  }
+
+  .image-people {
+    width: 100%;
+    max-width: 350px;
+    height: 150px;
+    margin: 20px auto;
+  }
+
+  .description-about {
+    margin: 20px 0 !important; /* Override all other margins */
+    padding: 0 10px;
+    font-size: 16px; /* Proper mobile font size */
+    color: #4A4E69;
+    line-height: 1.5;
+    width: 100%;
+    transform: none; /* Remove the transform that was causing issues */
+    border: none; /* Remove debug border */
+    box-sizing: border-box;
+  }
+
+  .action-button-about {
+    width: 80%;
+    max-width: 250px;
+    height: 50px;
+    margin: 25px auto;
+    font-size: 16px;
+  }
+
+  /* Contact Us Section Mobile */
+  .out-contact-us {
+    height: auto;
+    min-height: 100vh;
+    margin-top: 40px;
+  }
+
+  .inner-contact-us {
+    width: 90%;
+    height: auto;
+    padding: 20px 15px;
+  }
+
+  .contact-title {
+    font-size: 28px;
+  }
+
+  /* FAQ Section Mobile */
+  .in-faq {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 0;
+  }
+
+  /* Tutorial Section Mobile */
+  .tutorial {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .tutorial-steps-container {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    gap: 40px;
+  }
 }
