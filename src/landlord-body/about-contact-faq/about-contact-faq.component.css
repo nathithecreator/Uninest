@@ -2,6 +2,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* About Section */
@@ -15,18 +16,17 @@ body {
     box-sizing: border-box;
     margin: 0;
     background-color: #F5F7FA;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    text-align: center; /* Added for text-align property */
+    text-align: center;
 }
 
 .inner-about-section {
     background-color: white;
-    height: 80%; /* Adjusted for better responsiveness */
-    width: 80%; /* Adjusted for better responsiveness */
+    height: 80%;
+    width: 80%;
     margin: 0 auto;
     border-radius: 15px;
-    padding-top: 30px; /* Added for internal spacing */
-    box-sizing: border-box; /* Ensures padding is included in height/width */
+    padding-top: 30px;
+    box-sizing: border-box;
 }
 
 .why-title {
@@ -55,7 +55,7 @@ body {
 }
 
 .image-people-about {
-    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/peoplesImg.png');
+    background-image: url('../images/peoplesImg.png');
 }
 
 .description-about {
@@ -80,7 +80,9 @@ body {
     text-align: center;
 }
 
-.action-button-about p {
+.action-button-about p,
+.action-button-contact p,
+.action-button-faq p {
     margin: 0;
 }
 
@@ -90,18 +92,18 @@ body {
     height: 100vh;
     margin-top: 100px;
     background-color: white;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    text-align: center; /* Added for text-align property */
+    text-align: center;
 }
 
 .inner-contact-us {
-    height: 80vh;
+    height: auto;
     width: 80vw;
     margin: 0 auto;
     border-radius: 15px;
     background-color: #F5F7FA;
     padding-top: 50px;
-    box-sizing: border-box; /* Ensures padding is included in height/width */
+    box-sizing: border-box;
+    padding-bottom: 50px;
 }
 
 .contact-title {
@@ -118,7 +120,7 @@ body {
 }
 
 .image-people-contact {
-    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/caller.png');
+    background-image: url('../images/caller.png');
 }
 
 .action-button-contact {
@@ -135,10 +137,6 @@ body {
     text-align: center;
 }
 
-.action-button-contact p {
-    margin: 0;
-}
-
 /* FAQ Section */
 .in-faq {
     padding: 5% 0%;
@@ -150,20 +148,25 @@ body {
     box-sizing: border-box;
     margin: 0;
     background-color: #F5F7FA;
-    font-family: Arial, sans-serif;
-    text-align: center; /* Added for text-align property */
+    text-align: center;
 }
 
 .faq-title {
     color: #F5A623;
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 30px;
 }
 
 .faq-line {
+    width: 100px;
+    height: 5px;
     background-color: #F5A623;
+    margin: 20px auto;
 }
 
 .image-people-faq {
-    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/talkingPeople.png');
+    background-image: url('../images/talkingPeople.png');
 }
 
 .action-button-faq {
@@ -180,42 +183,37 @@ body {
     text-align: center;
 }
 
-.action-button-faq p {
-    margin: 0;
-}
-
 /* Tutorial Section */
 .tutorial {
     padding: 5% 0%;
-    height: 100vh;
+    height: auto;
     width: 100vw;
     display: flex;
     flex-direction: column;
-    gap: 90px; /* Merged from inline style */
+    gap: 90px;
     justify-content: center;
     box-sizing: border-box;
     margin: 0;
     background-color: #4A90E2;
-    font-family: Arial, sans-serif;
-    text-align: center; /* Merged from inline style */
+    text-align: center;
 }
 
 .tutorial-main-title {
     color: white;
     font-size: 33px;
     font-weight: bold;
-    margin: 0; /* Ensures no default margin from <p> tag */
+    margin: 0;
 }
 
 .tutorial-steps-container {
     width: 80vw;
-    height: 60vh;
+    height: auto;
     display: flex;
     gap: 60px;
     color: white;
     margin: 0 auto;
-    justify-content: space-around; /* Distribute items evenly */
-    align-items: flex-start; /* Align items to the start of the cross-axis */
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
 .the-first-instruction,
@@ -223,9 +221,9 @@ body {
 .the-third-instruction {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally within each step */
-    text-align: center; /* Center text within each step */
-    flex: 1; /* Allows columns to grow and shrink equally */
+    align-items: center;
+    text-align: center;
+    flex: 1;
 }
 
 .number-tutorial {
@@ -256,137 +254,133 @@ body {
     justify-content: center;
     margin: 20px auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .tutorial-pic-1 {
-    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/111.png');
+    background-image: url('../images/111.png');
 }
 
 .tutorial-pic-2 {
-    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/222.png');
+    background-image: url('../images/222.png');
 }
 
 .tutorial-pic-3 {
-    background-image: url('/Users/damacm1139/Documents/Uninest/src/assets/images/333.png');
+    background-image: url('../images/333.png');
 }
 
 .tutorial-topic-title {
     font-size: 28px;
     font-weight: bold;
-    margin-top: 0; /* Remove default top margin */
-    margin-bottom: 20px; /* Add some space below the title */
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .description-tutorial {
-    margin-top: 50px; /* Specific margin for first tutorial step */
-    /* Other descriptions might need adjustment if they have different spacing */
+    margin-top: 50px;
 }
 
-/* Adjustments for specific description margins */
 .the-second-instruction .description-tutorial,
 .the-third-instruction .description-tutorial {
-    margin-top: 70px; /* Applied to second and third based on original inline style */
+    margin-top: 70px;
 }
 
-
-
-/* mobile version */
+/* Mobile Version */
 @media (max-width: 650px) {
-  /* General adjustments */
-  body {
-    overflow-x: hidden;
-  }
+    body {
+        overflow-x: hidden;
+    }
 
-  /* About Section Mobile Fixes */
-  .main-about-section {
-    height: auto;
-    min-height: 100vh;
-    padding: 20px 0;
-  }
+    .main-about-section,
+    .out-contact-us,
+    .in-faq,
+    .tutorial {
+        height: auto;
+        min-height: 80%;
+        padding: 20px 0;
+        width: 100%;
+    }
 
-  .inner-about-section {
-    width: 90%;
-    height: auto;
-    padding: 20px 15px;
-    margin: 0 auto;
-  }
+    .inner-about-section,
+    .inner-contact-us {
+        width: 90%;
+        height: auto;
+        padding: 20px 15px;
+    }
 
-   
+    .why-title,
+    .contact-title,
+    .faq-title {
+        font-size: 28px;
+        margin-top: 15px;
+    }
 
-  .why-title {
-    font-size: 28px;
-    margin-top: 15px;
-  }
+    .blue-line,
+    .green-line,
+    .faq-line {
+        width: 60px;
+        height: 4px;
+        margin: 10px auto 20px;
+    }
 
-  .blue-line {
-    width: 60px;
-    height: 4px;
-    margin: 10px auto 20px;
-  }
+    .image-people {
+        width: 100%;
+        max-width: 300px;
+        height: 150px;
+        margin: 20px auto;
+    }
 
-  .image-people {
-    width: 100%;
-    max-width: 350px;
-    height: 150px;
-    margin: 20px auto;
-  }
+    .description-about {
+        margin: 20px 0 !important;
+        padding: 0 10px;
+        font-size: 16px !important;
+        width: 100%;
+    }
 
-  .description-about {
-    margin: 20px 0 !important; /* Override all other margins */
-    padding: 0 10px;
-    font-size: 16px; /* Proper mobile font size */
-    color: #4A4E69;
-    line-height: 1.5;
-    width: 100%;
-    transform: none; /* Remove the transform that was causing issues */
-    border: none; /* Remove debug border */
-    box-sizing: border-box;
-  }
+    .action-button-about,
+    .action-button-contact,
+    .action-button-faq {
+        width: 80%;
+        max-width: 250px;
+        height: 50px;
+        margin: 25px auto;
+    }
 
-  .action-button-about {
-    width: 80%;
-    max-width: 250px;
-    height: 50px;
-    margin: 25px auto;
-    font-size: 16px;
-  }
+    .out-contact-us {
+        margin-top: 40px;
+    }
 
-  /* Contact Us Section Mobile */
-  .out-contact-us {
-    height: auto;
-    min-height: 100vh;
-    margin-top: 40px;
-  }
+    .tutorial {
+        padding: 40px 20px;
+        gap: 40px;
+    }
 
-  .inner-contact-us {
-    width: 90%;
-    height: auto;
-    padding: 20px 15px;
-  }
+    .tutorial-steps-container {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        gap: 40px;
+    }
 
-  .contact-title {
-    font-size: 28px;
-  }
+    .tutorial-main-title {
+        font-size: 26px;
+    }
 
-  /* FAQ Section Mobile */
-  .in-faq {
-    height: auto;
-    min-height: 100vh;
-    padding: 20px 0;
-  }
+    .number-tutorial,
+    .picture-tutorial {
+        width: 80px;
+        height: 80px;
+    }
 
-  /* Tutorial Section Mobile */
-  .tutorial {
-    height: auto;
-    min-height: 100vh;
-    padding: 40px 20px;
-    gap: 40px;
-  }
+    .tutorial-topic-title {
+        font-size: 20px;
+    }
 
-  .tutorial-steps-container {
-    flex-direction: column;
-    height: auto;
-    width: 100%;
-    gap: 40px;
-  }
+    .description-tutorial {
+        margin-top: 20px !important;
+        font-size: 16px;
+        padding: 0 10px;
+    }
 }

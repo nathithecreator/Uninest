@@ -1,22 +1,90 @@
-<app-nav-landlord></app-nav-landlord>
-
 <div class="main-log-in">
     <div class="login-container">
+        <button class="back-button">
+            <i class="bi bi-arrow-left"></i> Back to Home
+        </button>
         <h1 class="login-title">Create Your Account</h1>
         <div class="login-card">
             <h2 class="logo-text">UniNest Go</h2>
             <form class="login-form">
-                <input type="text" placeholder="Full Name" id="name" class="form-input">
-                <input type="text" placeholder="Company Name" id="companyName" class="form-input">
-                <input type="email" placeholder="Company Email" id="companyEmail" class="form-input">
-                <input type="tel" placeholder="Phone Number" id="phone" class="form-input">
-                <input type="password" placeholder="Password" id="password" class="form-input">
-                <button type="submit" id="registerBtn" class="login-button">Register</button>
-                <div class="register-prompt">
-                    <p>Already have an account?</p>
-                    <a id="loginBtn" (click)="gotoLogin()">Login</a>
+                <!-- Row 1: Name, Surname, Email -->
+                <div class="form-row">
+                    <input type="text" placeholder="Name" id="name" class="form-input" required>
+                    <input type="text" placeholder="Surname" id="surname" class="form-input" required>
+                    <input type="email" placeholder="Email" id="email" class="form-input" required>
                 </div>
+
+                <!-- Row 2: Gender, Race, Age -->
+                <div class="form-row">
+                    <select id="gender" class="form-input" required>
+                        <option value="" disabled selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <select id="race" class="form-input" required>
+                        <option value="" disabled selected>Race</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                        <option value="coloured">Coloured</option>
+                        <option value="indian">Indian</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input type="number" placeholder="Age" id="age" class="form-input" min="18" required>
+                </div>
+
+                <!-- Row 3: Company Name, Phone, ID/Passport -->
+                <div class="form-row">
+                    <input type="text" placeholder="Company Name" id="companyName" class="form-input">
+                    <input type="tel" placeholder="Phone Number" id="phone" class="form-input" required>
+                    <input type="text" placeholder="ID Number/Passport" id="idNumber" class="form-input" required>
+                </div>
+
+                <!-- Row 4: Country (SA only), Province (SA provinces) -->
+                <div class="form-row" >
+                    <select id="country" class="form-input" style="width: 250px;" required>
+                        <option value="" disabled selected>Country</option>
+                        <option value="south_africa" selected>South Africa</option>
+                    </select>
+                    <select id="province" class="form-input" required>
+                        <option value="" disabled selected>Province</option>
+                        <option value="eastern_cape">Eastern Cape</option>
+                        <option value="free_state">Free State</option>
+                        <option value="gauteng">Gauteng</option>
+                        <option value="kwa_zulu_natal">KwaZulu-Natal</option>
+                        <option value="limpopo">Limpopo</option>
+                        <option value="mpumalanga">Mpumalanga</option>
+                        <option value="northern_cape">Northern Cape</option>
+                        <option value="north_west">North West</option>
+                        <option value="western_cape">Western Cape</option>
+                    </select>
+                    <div class="empty-space"></div> <!-- Empty space to maintain 3-column layout -->
+                </div>
+
+                <!-- Row 5: City, Street Address, Postal Code -->
+                <div class="form-row">
+                    <input type="text" placeholder="City" id="city" class="form-input" required>
+                    <input type="text" placeholder="Street Address" id="street" class="form-input" required>
+                    <input type="text" placeholder="Postal Code" id="postalCode" class="form-input" required>
+                </div>
+
+                <!-- Row 6: Bio (full width) -->
+                <div class="form-row full-width">
+                    <textarea placeholder="Bio (Optional)" id="bio" class="form-input textarea-input" rows="3"></textarea>
+                </div>
+
+                <!-- Row 7: Password, Confirm Password -->
+                <div class="form-row">
+                    <input type="password" placeholder="Password" id="password" class="form-input" required>
+                    <input type="password" placeholder="Confirm Password" id="confirmPassword" class="form-input" required>
+                    <div class="empty-space"></div> <!-- Empty space to maintain 3-column layout -->
+                </div>
+
+                <button type="submit" id="registerBtn" class="register-button">Register</button>
             </form>
+        </div>
+        <div class="login-area-button">
+            <span class="gotoLoginLabel">Already have an account?</span>
+            <span id="loginBtn" (click)="gotoLogin()">Login</span>
         </div>
     </div>
 </div>

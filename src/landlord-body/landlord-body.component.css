@@ -1,6 +1,6 @@
 .main-body-section {
     padding: 5% 10%;
-    height: 120vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -14,9 +14,10 @@
     align-items: center; 
     justify-content: center;
     text-align: center;
-    height: 900px;
+    height: auto;
     margin-top: 80px;
     width: 82vw;
+    overflow-y: hidden;
 }
 
 .why-title {
@@ -147,15 +148,9 @@
     
     .sub-title-box {
         font-size: 13px;
-        margin: 15px 20px 0 20px; /* Better mobile spacing */
-        line-height: 1.5; /* Improved readability */
+        margin: 15px 20px 0 20px; 
+        line-height: 1.5; 
     }
 
-    /* Remove hover effects on touch devices */
-    @media (hover: none) {
-        .a-box:hover {
-            transform: none;
-            box-shadow: none;
-        }
-    }
+    
 }

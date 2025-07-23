@@ -1,10 +1,9 @@
 import { Component,inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavLandlordComponent } from '../nav-landlord/nav-landlord.component';
 
 @Component({
   selector: 'app-register',
-  imports: [NavLandlordComponent],
+  imports: [],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

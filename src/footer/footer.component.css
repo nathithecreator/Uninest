@@ -1,3 +1,127 @@
-.footer-main{
+.footer-main {
     font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #4A4E69;
+    padding: 10px;
+}
+
+.inner-footer-main {
+    display: flex;
+    background-color: #4A4E69;
+    padding: 100px;
+    gap: 120px;
+    flex-wrap: wrap;
+}
+
+.first-section-footer,
+.second-section-footer,
+.third-section-footer,
+.fourth-section-footer {
+    flex: 1;
+    min-width: 200px;
+}
+
+.second-section-footer,
+.third-section-footer,
+.fourth-section-footer {
+    margin-left: -50px;
+}
+
+.footer-tiles {
+    color: #4A90E2;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.sub-titles {
+    color: white;
+    line-height: 2;
+}
+
+.sub-titles p {
+    margin: 8px 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.sub-titles p:hover {
+    color: #4A90E2;
+}
+
+.social-media-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-media-links div {
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.social-media-links div:hover {
+    color: #4A90E2;
+}
+
+.lower-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+}
+
+.white-line-footer {
+    width: 90vw;
+    height: 1px;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.lower-footer p {
+    padding-top: 30px;
+    margin: 0 auto;
+    font-size: 15px;
+}
+
+/* Mobile Version */
+@media (max-width: 650px) {
+    .inner-footer-main {
+        padding: 40px 20px;
+        gap: 40px;
+        flex-direction: column;
+    }
+
+    .first-section-footer,
+    .second-section-footer,
+    .third-section-footer,
+    .fourth-section-footer {
+        margin-left: 0;
+        flex: none;
+        width: 100%;
+    }
+
+    .footer-tiles {
+        font-size: 20px;
+    }
+
+    .sub-titles {
+        font-size: 14px;
+    }
+
+    .social-media-links {
+        justify-content: left;
+    }
+
+    .white-line-footer {
+        width: 85vw;
+    }
+
+    .lower-footer p {
+        font-size: 12px;
+        padding-top: 20px;
+    }
 }
