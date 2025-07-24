@@ -4,7 +4,7 @@ import { NavLandlordComponent } from "../nav-landlord/nav-landlord.component";
 
 @Component({
   selector: 'app-login',
-  imports: [NavLandlordComponent],
+  imports: [],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

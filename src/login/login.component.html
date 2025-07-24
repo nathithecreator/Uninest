@@ -1,6 +1,8 @@
-<app-nav-landlord></app-nav-landlord>
 
 <div class="main-log-in">
+    <button class="back-button">
+            <i class="bi bi-arrow-left"></i> Back to Home
+        </button>
     <div class="login-container">
         <h1 class="login-title">Hello, Welcome Back!</h1>
         <div class="login-card">
@@ -9,11 +11,12 @@
                 <input type="email" placeholder="Email" id="email" class="form-input">
                 <input type="password" placeholder="Password" id="password" class="form-input">
                 <button type="submit" id="loginBtn" class="login-button" (click)="gotoDashboardLL()">Login</button>
-                <div class="register-prompt">
+                
+            </form>
+        </div>
+        <div class="register-prompt">
                     <p id="create-label">Create a new account?</p>
                     <a id="registerBtn" (click)="gotoRegister()">Register</a>
-                </div>
-            </form>
         </div>
     </div>
 </div>

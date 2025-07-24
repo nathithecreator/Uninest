@@ -184,63 +184,101 @@ select.form-input {
 }
 
 /* Mobile Version */
-@media (max-width: 768px) {
-    .main-log-in {
-        padding: 5% 3%;
-    }
-    
-    .login-container {
-        padding: 0 10px;
-    }
-    
-    .login-card {
-        padding: 25px 20px;
-    }
-    
-    .form-row {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .empty-space {
-        display: none;
-    }
-    
-    .login-title {
-        font-size: 2rem;
-    }
-    
-    .logo-text {
-        font-size: 2rem;
-    }
-    
-    .login-area-button {
-        flex-direction: column;
-        gap: 5px;
-    }
+@media (max-width: 650px) {
+  .main-log-in {
+    padding: 20px 15px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #4A90E2, #294F7C);
+  }
+
+  .login-container {
+    padding: 0;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .back-button {
+    font-size: 14px;
+    padding: 6px 12px;
+    margin-bottom: 15px;
+  }
+
+  .login-title {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .login-card {
+    padding: 25px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo-text {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+
+  /* Form Structure */
+  .login-form {
+    gap: 15px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+
+  /* Input Fields */
+  .form-input {
+    width: 100%;
+    height: 46px;
+    font-size: 15px;
+    border-radius: 12px;
+    padding: 15px 15px;
+  }
+
+  select.form-input {
+    padding-right: 35px; /* Space for dropdown arrow */
+  }
+
+  .textarea-input {
+    min-height: 100px;
+    padding: 12px 15px;
+  }
+
+  /* Specific Elements */
+  #country, #province {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  /* Button */
+  .register-button {
+    height: 48px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 12px;
+  }
+
+  /* Login Prompt */
+  .login-area-button {
+    flex-direction: column;
+    gap: 5px;
+    font-size: 15px;
+    margin-top: 15px;
+  }
+
+  /* Hide empty spaces */
+  .empty-space {
+    display: none;
+  }
+
+  /* Focus States */
+  .form-input:focus {
+    border-width: 2px;
+  }
 }
 
-@media (max-width: 480px) {
-    .login-title {
-        font-size: 1.8rem;
-    }
-    
-    .logo-text {
-        font-size: 1.8rem;
-        margin-bottom: 20px;
-    }
-    
-    .form-input {
-        height: 45px;
-        font-size: 15px;
-    }
-    
-    .register-button {
-        height: 45px;
-        font-size: 16px;
-    }
-    
-    .login-area-button {
-        font-size: 16px;
-    }
-}
