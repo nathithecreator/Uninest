@@ -1,17 +1,31 @@
 <div class="main-nav">
   <div class="titles-section">
-    <p class="a-nav active" (click)="setActive($event)">Overview</p>
-    <p class="a-nav" (click)="setActive($event)" (click)="gotoProperties()">Properties</p>
-    <p class="a-nav" (click)="setActive($event)">Applications</p>
-    <p class="a-nav" (click)="setActive($event)">Maintenance</p>
-    <p class="a-nav" (click)="setActive($event)">Tenants</p>
+    <p class="a-nav" 
+       [class.active]="activeNav === 'Overview'"
+       (click)="setActive('Overview'); gotoDashboard()">Overview</p>
+       
+    <p class="a-nav" 
+       [class.active]="activeNav === 'Properties'"
+       (click)="setActive('Properties'); gotoProperties()">Properties</p>
+       
+    <p class="a-nav" 
+       [class.active]="activeNav === 'Applications'"
+       (click)="setActive('Applications'); gotoApplications()">Applications</p>
+       
+    <p class="a-nav" 
+       [class.active]="activeNav === 'Maintenance'"
+       (click)="setActive('Maintenance'); gotoMaintenance()">Maintenance</p>
+       
+    <p class="a-nav" 
+       [class.active]="activeNav === 'Tenants'"
+       (click)="setActive('Tenants'); gotoTenants()">Tenants</p>
 
     <div class="right-section">
-        <div class="notification">
-          <i class="bi bi-bell-fill"></i>
-          <span class="notification-badge">3</span>
-        </div>
-        <div class="profile-picture">A</div>
+      <div class="notification" (click)="gotoNotification()">
+        <i class="bi bi-bell-fill"></i>
+        <span class="notification-badge">3</span>
+      </div>
+      <div class="profile-picture" (click)="gotoProfile()">A</div>
     </div>
   </div>
 </div>

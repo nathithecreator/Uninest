@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -8,5 +9,11 @@ import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component'
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
+
+  router = inject(Router);
+
+  gotoEditProfile(){
+    this.router.navigate(['/profileedit']);
+  }
 
 }

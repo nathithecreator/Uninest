@@ -16,6 +16,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: auto auto;
+    margin-left: 80px;
 }
 
 .back-button {
@@ -42,8 +44,6 @@
     font-size: 18px;
 }
 
-
-
 .login-title {
     color: white;
     font-size: 32px;
@@ -57,7 +57,7 @@
     border-radius: 20px;
     width: 100%;
     padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.501);
 }
 
 .logo-text {
@@ -116,7 +116,6 @@
     gap: 5px;
     color: #666;
     font-size: 14px;
-    width: 100vw;
 }
 
 #registerBtn {
@@ -156,8 +155,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid yellow;
     height: 80vh;
+    margin: auto auto;
   }
 
   .login-title {
@@ -174,7 +173,7 @@
     width: 100%;
     padding: 30px 25px;
     border-radius: 16px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.501);
     margin-top: 20px;
   }
 
@@ -223,18 +222,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70vw;
-    margin-top: 3px;
+    margin-top: 13px;
     padding: 5px 5px;
     color: white;
-    font-size: 11px;
-    border: 1px solid yellow;
+    font-size: 15px;
   }
 
   #registerBtn {
-    color: white;
+    color: #71aaec;
     font-weight: 600;
-    text-decoration: underline;
   }
 
   

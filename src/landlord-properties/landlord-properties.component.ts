@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landlord-properties',
@@ -8,5 +9,11 @@ import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component'
   styleUrl: './landlord-properties.component.css'
 })
 export class LandlordPropertiesComponent {
+
+  router = inject(Router);
+
+  gotoAddProperty(){
+    this.router.navigate(['/addpropertyll']);
+  }
 
 }
