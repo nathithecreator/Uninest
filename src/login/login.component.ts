@@ -1,6 +1,5 @@
 import { Component,inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavLandlordComponent } from "../nav-landlord/nav-landlord.component";
 
 @Component({
   selector: 'app-login',
@@ -11,6 +10,10 @@ import { NavLandlordComponent } from "../nav-landlord/nav-landlord.component";
 export class LoginComponent {
 
   router = inject(Router);
+
+  goBackHome(){
+    this.router.navigate(['/LandingPage']);
+  }
 
   gotoRegister(){
     this.router.navigate(['/register']);

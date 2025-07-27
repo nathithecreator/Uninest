@@ -41,6 +41,27 @@ app-nav-dashboard {
 /* Base Styles */
 .message-header {
   margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.goback-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #4A90E2;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.goback-btn:hover {
+  color: #3a7bc8;
 }
 
 .message-title {

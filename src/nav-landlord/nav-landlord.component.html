@@ -4,10 +4,10 @@
   </div>
   <div class="titles-section">
     <div class="desktop">
-      <p>About Us</p>
-      <p>Contact Us</p>
-      <p>FAQ</p>
-      <p (click)="gotoLogin()">Log In</p>
+      <p (click)="scrollToAbout()">About Us</p>
+      <p (click)="scrollToContact()">Contact Us</p>
+      <p (click)="scrollToFAQ()">FAQ</p>
+      <p (click)="goToLogin()">Log In</p>
     </div>
     <div class="hamburger" (click)="toggleMobileMenu()">
       <i class="bi bi-list"></i>
@@ -17,8 +17,8 @@
 
 <!-- Mobile menu -->
 <div *ngIf="mobileMenuOpen" class="mobile-menu">
-  <p>About Us</p>
-  <p>Contact Us</p>
-  <p>FAQ</p>
-  <p (click)="gotoLogin()">Log In</p>
+  <p (click)="scrollToAbout()">About Us</p>
+  <p (click)="scrollToContact()">Contact Us</p>
+  <p (click)="scrollToFAQ()">FAQ</p>
+  <p (click)="goToLogin()">Log In</p>
 </div>

@@ -2,13 +2,20 @@
 <div class="main-dashboard-section">
   <div class="white-main-section">
     
-    <span class="gobackBtn" style="font-size: larger; color: grey;"><i class="bi bi-x-lg"></i></span>
-    <span class="property-title">Property Details: Modern Studio Apartment</span>
-    <div class="divider"></div>
+    
+
+    <div class="form-header">
+      <button class="goback-btn" (click)="gotoProperties()" aria-label="Close">
+        <i class="bi bi-arrow-left"></i> Back
+      </button>
+      <h1 class="property-title">Property Details: Modern Studio Apartment</h1>
+      <div class="divider"></div>
+    </div>
 
     <div class="property-details-card">
       <!-- First Row - Image and Status -->
       <div class="property-header">
+         
         <div class="property-image-container">
           <div class="property-image" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTg1NjQ5NTYzNzgzNjcwNzcw/original/d1a78902-38d6-41be-b9bf-01c388aa6f56.jpeg?im_w=1440');"></div>
         </div>
@@ -32,8 +39,8 @@
           </div>
           
           <div class="action-buttons">
-            <button class="edit-btn">Edit Property</button>
-            <button class="deactivate-btn">Deactivate Listing</button>
+            <button class="edit-btn" (click)="editProperty()">Edit Property</button>
+            <button class="deactivate-btn" (click)="editProperty()">Deactivate Listing</button>
           </div>
         </div>
       </div>

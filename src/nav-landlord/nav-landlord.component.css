@@ -64,6 +64,7 @@ body {
   width: 100%;
   padding: 20px;
   box-shadow: 0 2px 5px rgba(134, 134, 134, 0.5);
+  
 }
 
 .mobile-menu p {
@@ -101,5 +102,6 @@ body {
 
   .mobile-menu {
     display: flex;
+    z-index: 1000;
   }
 }

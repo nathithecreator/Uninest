@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-message',
@@ -8,5 +9,10 @@ import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component'
   styleUrl: './message.component.css'
 })
 export class MessageComponent {
+  router = inject(Router);
+
+  goBack() {
+    this.router.navigate(['/notifications']);
+  }
 
 }

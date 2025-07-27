@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule, DatePipe, SlicePipe } from '@angular/common';
 import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-applications-table',
@@ -16,6 +17,8 @@ export class StudentApplicationsTableComponent implements OnInit {
     // Add more data as needed...
   ];
 
+  router = inject(Router);
+
   // Pagination variables
   currentPage = 1;
   itemsPerPage = 5;
@@ -23,6 +26,10 @@ export class StudentApplicationsTableComponent implements OnInit {
 
   ngOnInit() {
     this.updatePaginatedData();
+  }
+
+  gotoApplication(){
+    this.router.navigate(['/application'])
   }
 
   get totalPages(): number {

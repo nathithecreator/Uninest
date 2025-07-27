@@ -16,6 +16,7 @@ import { ProfileComponent } from '../profile/profile.component';
 import { ProfileEditComponent } from '../profile-edit/profile-edit.component';
 import { MessageComponent } from '../message/message.component';
 import { NotificationsComponent } from '../notifications/notifications.component';
+import { EditPropertyComponent } from '../edit-property/edit-property.component';
 
 export const routes: Routes = [
         { path: '', redirectTo: 'LandingPage', pathMatch: 'full' },
@@ -27,9 +28,10 @@ export const routes: Routes = [
           { path: 'propertydetailsll', component: LandlordPropertyDetailsComponent },
           { path: 'studentapplicationsll', component: StudentApplicationsTableComponent },
           { path: 'addpropertyll', component: AddPropertyComponent },
-          { path: 'applicationdetails', component: StudentApplicationDetailsComponent },
+          { path: 'editproperty', component: EditPropertyComponent },
+          { path: 'application', component: StudentApplicationDetailsComponent },
           { path: 'maintenancetable', component: MaintenanceComponent },
-          { path: 'maintenancedetails', component: MaintenanceDetailsComponent },
+          { path: 'maintenance', component: MaintenanceDetailsComponent },
           { path: 'tenants', component: TenantsTableComponent },
           { path: 'tenant', component: TenantDetailsComponent },
           { path: 'profile', component: ProfileComponent },

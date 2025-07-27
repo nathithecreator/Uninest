@@ -22,19 +22,24 @@ export class NavDashboardComponent implements OnInit {
   }
 
   private setActiveBasedOnRoute(url: string) {
-    if (url.includes('/propertiesll')) {
+    if (url.includes('/propertiesll') 
+      || (url.includes('/propertydetailsll')) 
+    || (url.includes('/addpropertyll'))
+      || (url.includes('/editproperty'))) {
       this.activeNav = 'Properties';
     } else if (url.includes('/dashboardll')) {
       this.activeNav = 'Overview';
-    } else if (url.includes('/studentapplicationsll')) {
+    } else if (url.includes('/studentapplicationsll') || (url.includes('/application'))) {
       this.activeNav = 'Applications';
-    } else if (url.includes('/maintenancetable')) {
+    } else if (url.includes('/maintenancetable') || (url.includes('/maintenance'))) {
       this.activeNav = 'Maintenance';
-    } else if (url.includes('/tenants')) {
+    } else if (url.includes('/tenants') || (url.includes('/tenant'))) {
       this.activeNav = 'Tenants';
     } else if (url.includes('/notifications')) {
       this.activeNav = 'Notification';
     } else if (url.includes('/profile')) {
+      this.activeNav = 'Profile';
+    }else{
       this.activeNav = 'Profile';
     }
     // Add more routes as needed in the future
@@ -42,6 +47,10 @@ export class NavDashboardComponent implements OnInit {
 
   setActive(navItem: string) {
     this.activeNav = navItem;
+  }
+
+   logout() {
+    this.router.navigate(['/LandingPage']);
   }
 
   gotoProperties() {

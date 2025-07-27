@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tenants-table',
@@ -9,6 +10,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './tenants-table.component.css'
 })
 export class TenantsTableComponent {
+
+   router = inject(Router);
+   
   tenants = [
     {
       id: 1,
@@ -108,18 +112,15 @@ export class TenantsTableComponent {
     return new Date(dueDate) < today;
   }
 
-  viewTenant(tenant: any) {
-    // Implement view tenant logic
-    console.log('Viewing tenant:', tenant);
+  viewTenant() {
+    this.router.navigate(['/tenant']);
   }
 
   messageTenant(tenant: any) {
-    // Implement message tenant logic
     console.log('Messaging tenant:', tenant);
   }
 
   goBack() {
-    // Implement back navigation logic
-    window.history.back();
+    this.router.navigate(['/tenants']);
   }
 }

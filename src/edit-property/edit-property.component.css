@@ -1,0 +1,238 @@
+/* Base Styles */
+app-nav-dashboard {
+  position: fixed;
+  z-index: 555;
+  top: 0;
+  width: 100%;
+}
+
+.main-dashboard-section {
+  padding: 1% 0;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  background-image: url('../assets/images/uninestback1.png');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-top: 80px;
+}
+
+.white-main-section {
+  width: 80vw;
+  min-height: 90vh;
+  background-color: #fff;
+  margin: 30px auto;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-header {
+  margin-bottom: 30px;
+}
+
+.goback-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6c757d;
+  cursor: pointer;
+  padding: 5px;
+  float: right;
+}
+
+.goback-btn:hover {
+  color: #0099FF;
+}
+
+.property-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0099FF;
+  margin-bottom: 10px;
+  clear: both;
+}
+
+.form-subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin-bottom: 0;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 20px 0;
+}
+
+.property-image{
+    background-image: url('https://a0.muscache.com/im/pictures/miso/Hosting-1097830060312633619/original/676b674c-ba3e-4938-beca-71309ff73757.jpeg?im_w=1200');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    height: 100px;
+    width: 200px;
+}
+
+.property-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #495057;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #4A90E2;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.fee-display {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.file-upload-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 8px;
+}
+
+.file-upload-btn {
+  background-color: #4A90E2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s;
+}
+
+.file-upload-btn:hover {
+  background-color: #3a7bc8;
+}
+
+.file-names {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.image-preview-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.image-preview {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-image {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.submit-btn {
+  grid-column: 1 / -1;
+  background-color: #6BCB77;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background-color: #5ab767;
+}
+
+.submit-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .property-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .white-main-section {
+    width: 90vw;
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .white-main-section {
+    width: 95vw;
+    padding: 20px 15px;
+  }
+  
+  .property-title {
+    font-size: 1.5rem;
+  }
+}

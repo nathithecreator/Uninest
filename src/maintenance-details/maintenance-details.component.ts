@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-maintenance-details',
@@ -9,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './maintenance-details.component.css'
 })
 export class MaintenanceDetailsComponent {
+
+  router = inject(Router);
 
   selectedStatus = 'open'; // Default status
 
@@ -27,8 +30,7 @@ export class MaintenanceDetailsComponent {
   };
 
   goBack() {
-    // In a real app, you might use the Router to navigate back
-    window.history.back();
+    this.router.navigate(['/maintenancetable']);
   }
 
   changeStatus(status: string) {

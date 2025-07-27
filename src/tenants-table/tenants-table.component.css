@@ -38,9 +38,13 @@ app-nav-dashboard {
   margin: 1.5rem 0;
 }
 
-/* Add these styles to your existing CSS */
+.property-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
 
-/* Tenants Table Specific Styles */
 .tenants-table {
   width: 100%;
   border-collapse: separate;

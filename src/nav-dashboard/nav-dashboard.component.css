@@ -49,6 +49,13 @@ body {
   white-space: nowrap;
 }
 
+.logoutBtn{
+  display: flex;
+  flex-direction: column;
+  margin: auto auto;
+  cursor: pointer;
+}
+
 .a-nav.active {
   color: #4A90E2;
    font-weight: 700;
@@ -145,6 +152,14 @@ body {
     font-size: 13px;
     padding: 0 5px;
   }
+
+.logoutBtn{
+  display: flex;
+  font-size: 13px;
+  flex-direction: column;
+  margin: auto auto;
+  cursor: pointer;
+}
   
   .right-section {
     gap: 15px;
@@ -162,7 +177,7 @@ body {
     gap: 10px;
   }
   
-  .a-nav {
+  .a-nav, .logoutBtn {
     font-size: 12px;
   }
   

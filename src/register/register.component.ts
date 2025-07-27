@@ -11,6 +11,10 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   router = inject(Router);
 
+  goBackHome(){
+    this.router.navigate(['/LandingPage']);
+  }
+
   gotoLogin(){
     this.router.navigate(['/login']);
   }

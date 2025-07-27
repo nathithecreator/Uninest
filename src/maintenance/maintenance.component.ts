@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-maintenance',
@@ -9,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './maintenance.component.css'
 })
 export class MaintenanceComponent {
+
+  router = inject(Router);
 
    requests = [
     {
@@ -103,14 +106,9 @@ export class MaintenanceComponent {
     }
   }
 
-  viewDetails(request: any) {
-    // Implement view details logic
-    console.log('Viewing details for request:', request);
+  viewDetails() {
+    this.router.navigate(['maintenance']);
   }
 
-  goBack() {
-    // Implement back navigation logic
-    window.history.back();
-  }
 
 }

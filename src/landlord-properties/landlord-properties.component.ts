@@ -16,4 +16,8 @@ export class LandlordPropertiesComponent {
     this.router.navigate(['/addpropertyll']);
   }
 
+  gotoPropertyDetails(){
+    this.router.navigate(['/propertydetailsll']);
+  }
+
 }
