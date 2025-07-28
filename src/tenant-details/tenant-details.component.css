@@ -326,6 +326,10 @@ app-nav-dashboard {
   .lease-status-container {
     grid-template-columns: 1fr;
   }
+
+  .goback-btn{
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 576px) {

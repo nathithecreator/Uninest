@@ -1,0 +1,175 @@
+/* General Resets and Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #333;
+}
+
+/* About Section */
+.main-about-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.header-image {
+    background-image: url('https://images.pexels.com/photos/2961967/pexels-photo-2961967.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.header-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.the-main-heading {
+    color: white;
+    font-size: 3.5rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.inner-about-section {
+    background-color: white;
+    width: 85%;
+    margin: -50px auto 0;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.two-side-divider {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.content-part {
+    flex: 1;
+    text-align: left;
+}
+
+.image-part {
+    flex: 1;
+}
+
+.the-image {
+    background-image: url('https://images.pexels.com/photos/1462630/pexels-photo-1462630.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.the-second-image{
+    background-image: url('https://images.pexels.com/photos/33152525/pexels-photo-33152525.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 520px;
+    width: 480px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mission-section {
+    margin-bottom: 30px;
+}
+
+.mission-title {
+    color: #4A90E2;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.about-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-text {
+    color: #333;
+    font-weight: 600;
+}
+
+.uninest-text {
+    color: #4A90E2;
+    font-weight: 700;
+}
+
+.horizontal-line {
+    width: 80px;
+    height: 4px;
+    background-color: #4A90E2;
+    margin: 10px 0 25px;
+}
+
+.the-about-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .two-side-divider {
+        flex-direction: column;
+    }
+    
+    .the-image {
+        height: 300px;
+        margin-top: 30px;
+    }
+
+    .the-second-image {
+        height: 300px;
+        margin-top: 30px;
+    }
+    
+    .inner-about-section {
+        width: 90%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .the-main-heading {
+        font-size: 2.5rem;
+    }
+    
+    .mission-title {
+        font-size: 1.5rem;
+    }
+    
+    .about-title {
+        font-size: 1.7rem;
+    }
+    
+    .the-about-paragraph {
+        font-size: 1rem;
+    }
+}

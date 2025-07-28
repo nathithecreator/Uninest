@@ -17,6 +17,9 @@ import { ProfileEditComponent } from '../profile-edit/profile-edit.component';
 import { MessageComponent } from '../message/message.component';
 import { NotificationsComponent } from '../notifications/notifications.component';
 import { EditPropertyComponent } from '../edit-property/edit-property.component';
+import { AboutUsComponent } from '../about-us/about-us.component';
+import { ContactUsComponent } from '../contact-us/contact-us.component';
+import { FaqComponent } from '../faq/faq.component';
 
 export const routes: Routes = [
         { path: '', redirectTo: 'LandingPage', pathMatch: 'full' },
@@ -37,7 +40,10 @@ export const routes: Routes = [
           { path: 'profile', component: ProfileComponent },
           { path: 'profileedit', component: ProfileEditComponent },
           { path: 'message', component: MessageComponent },
-          { path: 'notifications', component: NotificationsComponent }
+          { path: 'notifications', component: NotificationsComponent },
+          { path: 'aboutus', component: AboutUsComponent },
+          { path: 'contactus', component: ContactUsComponent },
+          { path: 'faq', component: FaqComponent }
 
 
 ];

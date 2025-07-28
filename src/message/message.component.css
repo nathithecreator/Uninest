@@ -225,6 +225,10 @@ app-nav-dashboard {
   .message-metadata {
     grid-template-columns: 1fr;
   }
+
+  .goback-btn{
+    font-style: 10px;
+  }
   
   .form-actions {
     justify-content: center;

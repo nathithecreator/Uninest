@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class NotificationsComponent {
 
-  router =inject(Router);
+  router = inject(Router);
 
   gotoMessage(){
     this.router.navigate(['/message']);

@@ -26,7 +26,12 @@
         <span class="notification-badge">3</span>
       </div>
       <div class="profile-picture" (click)="gotoProfile()">A</div>
-      <p class="logoutBtn" (click)="logout()">Log Out</p>
+      <div class="logOutBtn">
+         <p class="logout-text" (click)="logout()">Log Out</p>
+      </div>
+      <div class="logout-icon" (click)="logout()">
+         <i class="bi bi-box-arrow-left"></i>
+      </div>
     </div>
   </div>
 </div>
