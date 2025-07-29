@@ -2,8 +2,6 @@
 <div class="main-dashboard-section">
   <div class="white-main-section">
     
-    
-
     <div class="form-header">
       <button class="goback-btn" (click)="gotoProperties()" aria-label="Close">
         <i class="bi bi-arrow-left"></i> Back
@@ -83,6 +81,34 @@
           Building amenities include 24/7 security, a communal laundry room, 
           and a rooftop common area with stunning city views. Ideal for a single student or young professional.
         </p>
+      </div>
+
+      <!-- Fourth Row - Transport Options -->
+      <div class="property-amenities-section">
+        <h2 class="section-title">Transport Options</h2>
+        <div class="amenities-list">
+          <div class="amenity-item" *ngFor="let transport of transportOptions">
+            <i class="bi bi-bus-front"></i>
+            <div class="amenity-info">
+              <span class="amenity-name">{{transport.name}}</span>
+              <span class="amenity-desc">{{transport.description}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fifth Row - Shops & Services -->
+      <div class="property-amenities-section">
+        <h2 class="section-title">Shops & Services</h2>
+        <div class="amenities-list">
+          <div class="amenity-item" *ngFor="let shop of shopsServices">
+            <i class="bi bi-shop"></i>
+            <div class="amenity-info">
+              <span class="amenity-name">{{shop.name}}</span>
+              <span class="amenity-desc">{{shop.description}}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

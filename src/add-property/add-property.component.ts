@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component';
 
 @Component({
   selector: 'app-add-property',
   standalone: true,
-  imports: [NavDashboardComponent, ReactiveFormsModule, CommonModule],
+  imports: [NavDashboardComponent, ReactiveFormsModule, CommonModule, FormsModule],
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.css']
 })
@@ -15,6 +15,37 @@ export class AddPropertyComponent {
   selectedFiles: File[] = [];
   listingFee = 0;
   propertyTypes = ['Apartment', 'House', 'Townhouse', 'Studio', 'Cottage'];
+
+  // Add to your component class
+newTransport = { name: '', description: '' };
+transportOptions: any[] = [];
+
+newShop = { name: '', description: '' };
+shopsServices: any[] = [];
+
+addTransport() {
+  if (this.newTransport.name && this.newTransport.description) {
+    this.transportOptions.push({...this.newTransport});
+    this.newTransport = { name: '', description: '' };
+    // Update form control if needed
+  }
+}
+
+removeTransport(index: number) {
+  this.transportOptions.splice(index, 1);
+}
+
+addShop() {
+  if (this.newShop.name && this.newShop.description) {
+    this.shopsServices.push({...this.newShop});
+    this.newShop = { name: '', description: '' };
+    // Update form control if needed
+  }
+}
+
+removeShop(index: number) {
+  this.shopsServices.splice(index, 1);
+}
 
   constructor(private fb: FormBuilder) {
     this.propertyForm = this.fb.group({

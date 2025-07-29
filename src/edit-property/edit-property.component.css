@@ -214,9 +214,120 @@ textarea.form-control {
   cursor: not-allowed;
 }
 
+/* Transport and Shops Sections */
+.transport-section, .shops-section {
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+}
+
+.multi-input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.multi-input-container input {
+  flex: 1;
+}
+
+.add-btn {
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 42px;
+  transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #3a7bc8;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 42px;
+  transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+.items-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.item-tag {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 20px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.item-name {
+  font-weight: 500;
+}
+
+.item-desc {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.item-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.edit-item, .remove-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.edit-item {
+  color: #4A90E2;
+}
+
+.remove-item {
+  color: #dc3545;
+}
+
 /* Responsive adjustments */
-@media (max-width: 992px) {
-  .property-form {
+@media (max-width: 768px) {
+  
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .multi-input-container {
+    flex-direction: column;
+  }
+  
+  .add-btn {
+    justify-content: center;
+    padding: 10px;
+  }
+
+   .property-form {
     grid-template-columns: 1fr;
   }
   
@@ -224,7 +335,18 @@ textarea.form-control {
     width: 90vw;
     padding: 30px 20px;
   }
+
+  .multi-input-container {
+    flex-direction: column;
+  }
+  
+  .add-btn, .cancel-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+  }
 }
+
 
 @media (max-width: 576px) {
   .white-main-section {

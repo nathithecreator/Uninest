@@ -112,7 +112,7 @@ app-nav-dashboard {
 .property-image {
   height: 300px;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -173,7 +173,7 @@ app-nav-dashboard {
 .edit-btn, .deactivate-btn {
   padding: 10px 20px;
   border: none;
-  border-radius: 15px;
+  border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s;
@@ -229,6 +229,53 @@ app-nav-dashboard {
   color: #555;
 }
 
+/* Amenities Sections */
+.property-amenities-section {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.amenities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  padding: 12px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  width: calc(50% - 15px);
+}
+
+.amenity-item i {
+  font-size: 1.2rem;
+  color: #4A90E2;
+}
+
+.amenity-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.amenity-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.amenity-desc {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+
+
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
   .white-main-section {
@@ -252,5 +299,9 @@ app-nav-dashboard {
   
   .action-buttons {
     flex-direction: column;
+  }
+
+  .amenity-item {
+    width: 100%;
   }
 }

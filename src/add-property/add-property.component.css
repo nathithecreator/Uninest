@@ -204,6 +204,75 @@ textarea.form-control {
   cursor: not-allowed;
 }
 
+/* Transport & Shops Sections */
+.transport-section,
+.shops-section {
+  grid-column: 1 / -1;
+}
+
+.multi-input-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.add-btn {
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #3a7bc8;
+}
+
+.items-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.item-tag {
+  background-color: #F5F7FA;
+  border-radius: 20px;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.item-name {
+  font-weight: 600;
+  color: #4A4E69;
+}
+
+.item-desc {
+  color: #6c757d;
+  font-size: 0.8rem;
+}
+
+.remove-item {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .property-form {
@@ -213,6 +282,15 @@ textarea.form-control {
   .white-main-section {
     width: 90vw;
     padding: 30px 20px;
+  }
+
+  .multi-input-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .add-btn {
+    justify-content: center;
+    padding: 10px;
   }
 }
 
@@ -224,5 +302,14 @@ textarea.form-control {
   
   .property-title {
     font-size: 1.5rem;
+  }
+
+  .multi-input-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .add-btn {
+    justify-content: center;
+    padding: 10px;
   }
 }

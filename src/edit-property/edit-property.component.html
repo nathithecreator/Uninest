@@ -49,6 +49,72 @@
                   placeholder="Provide a detailed description of your property"></textarea>
       </div>
 
+      <!-- Transport Options Section -->
+<div class="form-group transport-section">
+  <label>Transport Options</label>
+  <div class="multi-input-container">
+    <input type="text" placeholder="Transport name (e.g., Metro Station)" 
+           [(ngModel)]="newTransport.name" [ngModelOptions]="{standalone: true}"
+           class="form-control">
+    <input type="text" placeholder="Description (e.g., 5 min walk)" 
+           [(ngModel)]="newTransport.description" [ngModelOptions]="{standalone: true}"
+           class="form-control">
+    <button type="button" class="add-btn" (click)="addTransport()">
+      <i class="bi bi-plus"></i> {{editingTransportIndex !== null ? 'Update' : 'Add'}}
+    </button>
+    <button *ngIf="editingTransportIndex !== null" type="button" class="cancel-btn" (click)="cancelEditTransport()">
+      Cancel
+    </button>
+  </div>
+  <div class="items-list" *ngIf="transportOptions.length > 0">
+    <div class="item-tag" *ngFor="let transport of transportOptions; let i = index">
+      <span class="item-name">{{transport.name}}</span>
+      <span class="item-desc">{{transport.description}}</span>
+      <div class="item-actions">
+        <button class="edit-item" (click)="editTransport(i)">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="remove-item" (click)="removeTransport(i)">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Shops & Services Section -->
+<div class="form-group shops-section">
+  <label>Shops & Services</label>
+  <div class="multi-input-container">
+    <input type="text" placeholder="Shop/Service name (e.g., Supermarket)" 
+           [(ngModel)]="newShop.name" [ngModelOptions]="{standalone: true}"
+           class="form-control">
+    <input type="text" placeholder="Description (e.g., 10 min walk)" 
+           [(ngModel)]="newShop.description" [ngModelOptions]="{standalone: true}"
+           class="form-control">
+    <button type="button" class="add-btn" (click)="addShop()">
+      <i class="bi bi-plus"></i> {{editingShopIndex !== null ? 'Update' : 'Add'}}
+    </button>
+    <button *ngIf="editingShopIndex !== null" type="button" class="cancel-btn" (click)="cancelEditShop()">
+      Cancel
+    </button>
+  </div>
+  <div class="items-list" *ngIf="shopsServices.length > 0">
+    <div class="item-tag" *ngFor="let shop of shopsServices; let i = index">
+      <span class="item-name">{{shop.name}}</span>
+      <span class="item-desc">{{shop.description}}</span>
+      <div class="item-actions">
+        <button class="edit-item" (click)="editShop(i)">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="remove-item" (click)="removeShop(i)">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <div class="form-group">
         <div class="property-image"></div>
         <label>Upload Images (minimum 8 pictures)</label>
