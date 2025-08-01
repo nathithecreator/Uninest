@@ -1,0 +1,630 @@
+{
+  "properties": [
+  {
+    "propertyName": "Sunshine Apartments",
+    "mainImage": "https://example.com/images/sunshine-main.jpg",
+    "otherImages": [
+      "https://example.com/images/sunshine-1.jpg",
+      "https://example.com/images/sunshine-2.jpg",
+      "https://example.com/images/sunshine-3.jpg"
+    ],
+    "address": "123 Greenfield Avenue, Springfield",
+    "type": "Apartment",
+    "bedroom": "2",
+    "rent": 1200,
+    "status": "Available",
+    "occupation": "Full",
+    "listingFee": 50,
+    "description": "Bright and spacious 2-bedroom apartment with modern amenities and great natural light.",
+    "transports": [
+      "Bus stop 200m away",
+      "Subway station 500m away"
+    ],
+    "shops": [
+      "Supermarket 300m",
+      "Mall 1km"
+    ],
+    "reviewsList": [
+      {
+        "tenantName": "Sarah Johnson",
+        "comment": "Great location and responsive landlord!"
+      },
+      {
+        "tenantName": "Michael Chen",
+        "comment": "Loved living here, very quiet neighborhood."
+      }
+    ],
+    "landlordEmail": "landlord1@example.com"
+  },
+  {
+    "propertyName": "Downtown Studio",
+    "mainImage": "https://example.com/images/downtown-main.jpg",
+    "otherImages": [
+      "https://example.com/images/downtown-1.jpg",
+      "https://example.com/images/downtown-2.jpg"
+    ],
+    "address": "456 Central Street, Metropolis",
+    "type": "Studio",
+    "bedroom": "1",
+    "rent": 850,
+    "status": "Partially-Occupied",
+    "occupation": "Single",
+    "listingFee": 35,
+    "description": "Cozy studio apartment in the heart of downtown, perfect for students.",
+    "transports": [
+      "Train station across the street",
+      "Multiple bus lines nearby"
+    ],
+    "shops": [
+      "Convenience store next door",
+      "Farmer's market every Saturday"
+    ],
+    "reviewsList": [
+      {
+        "tenantName": "Emma Wilson",
+        "comment": "Perfect location for university students."
+      }
+    ],
+    "landlordEmail": "landlord2@example.com"
+  },
+  {
+    "propertyName": "Garden View House",
+    "mainImage": "https://example.com/images/garden-main.jpg",
+    "otherImages": [
+      "https://example.com/images/garden-1.jpg",
+      "https://example.com/images/garden-2.jpg",
+      "https://example.com/images/garden-3.jpg",
+      "https://example.com/images/garden-4.jpg"
+    ],
+    "address": "789 Oak Lane, Greentown",
+    "type": "House",
+    "bedroom": "3",
+    "rent": 1800,
+    "status": "Occupied",
+    "occupation": "Full",
+    "listingFee": 75,
+    "description": "Beautiful 3-bedroom house with large garden and modern kitchen.",
+    "transports": [
+      "Bus stop at the end of the street"
+    ],
+    "shops": [
+      "Shopping center 1.5km away"
+    ],
+    "reviewsList": [],
+    "landlordEmail": "landlord3@example.com"
+  },
+  {
+    "propertyName": "University Lofts",
+    "mainImage": "https://example.com/images/lofts-main.jpg",
+    "otherImages": [
+      "https://example.com/images/lofts-1.jpg",
+      "https://example.com/images/lofts-2.jpg",
+      "https://example.com/images/lofts-3.jpg"
+    ],
+    "address": "101 Campus Road, University Town",
+    "type": "Apartment",
+    "bedroom": "4",
+    "rent": 2200,
+    "status": "Partially-Occupied",
+    "occupation": "Shared",
+    "listingFee": 60,
+    "description": "Spacious 4-bedroom apartment ideal for student groups, close to campus.",
+    "transports": [
+      "University shuttle stop in front",
+      "Bike sharing station nearby"
+    ],
+    "shops": [
+      "24-hour convenience store",
+      "Bookstore 200m away"
+    ],
+    "reviewsList": [
+      {
+        "tenantName": "David Miller",
+        "comment": "Great place for student groups, very spacious."
+      },
+      {
+        "tenantName": "Lisa Park",
+        "comment": "Landlord is very accommodating to students."
+      }
+    ],
+    "landlordEmail": "landlord4@example.com"
+  },
+  {
+    "propertyName": "Riverside Cottage",
+    "mainImage": "https://example.com/images/riverside-main.jpg",
+    "otherImages": [
+      "https://example.com/images/riverside-1.jpg",
+      "https://example.com/images/riverside-2.jpg"
+    ],
+    "address": "222 Riverbank Drive, Waterside",
+    "type": "Cottage",
+    "bedroom": "2",
+    "rent": 950,
+    "status": "Available",
+    "occupation": "Full",
+    "listingFee": 45,
+    "description": "Charming cottage with beautiful river views, recently renovated.",
+    "transports": [
+      "Ferry dock 500m away",
+      "Bus route 1km"
+    ],
+    "shops": [
+      "Small grocery store nearby",
+      "Boutique shops in town center"
+    ],
+    "reviewsList": [
+      {
+        "tenantName": "James Wilson",
+        "comment": "Peaceful location with great views."
+      }
+    ],
+    "landlordEmail": "landlord5@example.com"
+  }
+],
+  "tenants": [
+  {
+    "id": "tnt-001",
+    "name": "Lerato",
+    "surname": "Mbeki",
+    "email": "lerato.mbeki@example.com",
+    "phoneNumber": "0712345678",
+    "propertyAddress": "123 Greenfield Avenue, Springfield",
+    "rentAmount": 8500,
+    "rentDueDate": "2023-11-01T00:00:00Z",
+    "leaseEndDate": "2024-10-31T00:00:00Z",
+    "leaseStatus": "Active",
+    "paymentsList": [
+      {
+        "amount": 8500,
+        "date": "2023-10-01T00:00:00Z"
+      },
+      {
+        "amount": 8500,
+        "date": "2023-09-01T00:00:00Z"
+      }
+    ],
+    "activeStatus": true,
+    "personalStreetName": "45 Oak Street",
+    "personalSuburb": "Rosebank",
+    "personalProvince": "Gauteng",
+    "personalPostalCode": "2196",
+    "personalCountry": "South Africa",
+    "bio": "Final year computer science student at Wits University",
+    "race": "Black",
+    "gender": "Female",
+    "studentID": "WTS2020456",
+    "university": "University of the Witwatersrand",
+    "password": "securepassword123",
+    "appliedPropertyAddress": "123 Greenfield Avenue, Springfield",
+    "idCopy": "https://example.com/docs/lerato-id.jpg",
+    "avadavat": "https://example.com/images/lerato-profile.jpg",
+    "landlordEmail": "landlord1@example.com"
+  },
+  {
+    "id": "tnt-002",
+    "name": "James",
+    "surname": "van der Merwe",
+    "email": "james.vdm@example.com",
+    "phoneNumber": "0823456789",
+    "propertyAddress": "456 Central Street, Metropolis",
+    "rentAmount": 6500,
+    "rentDueDate": "2023-11-05T00:00:00Z",
+    "leaseEndDate": "2024-06-30T00:00:00Z",
+    "leaseStatus": "Active",
+    "paymentsList": [
+      {
+        "amount": 6500,
+        "date": "2023-10-05T00:00:00Z"
+      }
+    ],
+    "activeStatus": true,
+    "personalStreetName": "12 Pine Road",
+    "personalSuburb": "Hatfield",
+    "personalProvince": "Gauteng",
+    "personalPostalCode": "0028",
+    "personalCountry": "South Africa",
+    "bio": "Engineering student at UP, enjoys hiking and photography",
+    "race": "White",
+    "gender": "Male",
+    "studentID": "UP20211234",
+    "university": "University of Pretoria",
+    "password": "upstudent2023",
+    "appliedPropertyAddress": "456 Central Street, Metropolis",
+    "idCopy": "https://example.com/docs/james-id.jpg",
+    "avadavat": "https://example.com/images/james-profile.jpg",
+    "landlordEmail": "landlord2@example.com"
+  },
+  {
+    "id": "tnt-003",
+    "name": "Priya",
+    "surname": "Naidoo",
+    "email": "priya.naidoo@example.com",
+    "phoneNumber": "0834567890",
+    "propertyAddress": "789 Oak Lane, Greentown",
+    "rentAmount": 7200,
+    "rentDueDate": "2023-11-10T00:00:00Z",
+    "leaseEndDate": "2024-11-09T00:00:00Z",
+    "leaseStatus": "Pending",
+    "paymentsList": [],
+    "activeStatus": false,
+    "personalStreetName": "8 Palm Boulevard",
+    "personalSuburb": "Durban North",
+    "personalProvince": "KwaZulu-Natal",
+    "personalPostalCode": "4051",
+    "personalCountry": "South Africa",
+    "bio": "Medical student at UKZN, vegetarian, non-smoker",
+    "race": "Indian",
+    "gender": "Female",
+    "studentID": "UKZN2020789",
+    "university": "University of KwaZulu-Natal",
+    "password": "medstudent456",
+    "appliedPropertyAddress": "789 Oak Lane, Greentown",
+    "idCopy": "https://example.com/docs/priya-id.jpg",
+    "avadavat": "https://example.com/images/priya-profile.jpg",
+    "landlordEmail": "landlord3@example.com"
+  },
+  {
+    "id": "tnt-004",
+    "name": "Thabo",
+    "surname": "Molefe",
+    "email": "thabo.molefe@example.com",
+    "phoneNumber": "0745678901",
+    "propertyAddress": "101 Campus Road, University Town",
+    "rentAmount": 5500,
+    "rentDueDate": "2023-11-15T00:00:00Z",
+    "leaseEndDate": "2023-12-15T00:00:00Z",
+    "leaseStatus": "Terminated",
+    "paymentsList": [
+      {
+        "amount": 5500,
+        "date": "2023-10-15T00:00:00Z"
+      },
+      {
+        "amount": 5500,
+        "date": "2023-09-15T00:00:00Z"
+      }
+    ],
+    "activeStatus": false,
+    "personalStreetName": "23 Acacia Avenue",
+    "personalSuburb": "Soweto",
+    "personalProvince": "Gauteng",
+    "personalPostalCode": "1809",
+    "personalCountry": "South Africa",
+    "bio": "Former UJ student, now working in digital marketing",
+    "race": "Black",
+    "gender": "Male",
+    "studentID": "UJ2019876",
+    "university": "University of Johannesburg",
+    "password": "thabo2023uj",
+    "appliedPropertyAddress": "101 Campus Road, University Town",
+    "idCopy": "https://example.com/docs/thabo-id.jpg",
+    "avadavat": "https://example.com/images/thabo-profile.jpg",
+    "landlordEmail": "landlord4@example.com"
+  },
+  {
+    "id": "tnt-005",
+    "name": "Amina",
+    "surname": "Mohammed",
+    "email": "amina.m@example.com",
+    "phoneNumber": "0767890123",
+    "propertyAddress": "222 Riverbank Drive, Waterside",
+    "rentAmount": 6800,
+    "rentDueDate": "2023-11-20T00:00:00Z",
+    "leaseEndDate": "2024-05-20T00:00:00Z",
+    "leaseStatus": "Active",
+    "paymentsList": [
+      {
+        "amount": 6800,
+        "date": "2023-10-20T00:00:00Z"
+      },
+      {
+        "amount": 6800,
+        "date": "2023-09-20T00:00:00Z"
+      },
+      {
+        "amount": 6800,
+        "date": "2023-08-20T00:00:00Z"
+      }
+    ],
+    "activeStatus": true,
+    "personalStreetName": "17 Cedar Street",
+    "personalSuburb": "Claremont",
+    "personalProvince": "Western Cape",
+    "personalPostalCode": "7708",
+    "personalCountry": "South Africa",
+    "bio": "UCT law student, passionate about human rights",
+    "race": "Coloured",
+    "gender": "Female",
+    "studentID": "UCT2021567",
+    "university": "University of Cape Town",
+    "password": "uctlawstudent",
+    "appliedPropertyAddress": "222 Riverbank Drive, Waterside",
+    "idCopy": "https://example.com/docs/amina-id.jpg",
+    "avadavat": "https://example.com/images/amina-profile.jpg",
+    "landlordEmail": "landlord5@example.com"
+  }
+],
+  "maintenance": [
+  {
+    "maintenanceName": "Leaking Kitchen Faucet",
+    "address": "123 Greenfield Avenue, Springfield",
+    "description": "The kitchen faucet has been leaking constantly, wasting water and causing dampness under the sink.",
+    "type": "Plumbing",
+    "dateReported": "2023-10-15T09:30:00Z",
+    "tenantName": "Lerato",
+    "tenantSurname": "Mbeki",
+    "tenantEmail": "lerato.mbeki@example.com",
+    "status": "In Progress",
+    "action": "Assign Technician",
+    "landlordEmail": "landlord1@example.com"
+  },
+  {
+    "maintenanceName": "Broken Window",
+    "address": "456 Central Street, Metropolis",
+    "description": "Window in the living room cracked after a storm, needs replacement for safety and insulation.",
+    "type": "Structural",
+    "dateReported": "2023-10-20T14:15:00Z",
+    "tenantName": "James",
+    "tenantSurname": "van der Merwe",
+    "tenantEmail": "james.vdm@example.com",
+    "status": "Open",
+    "action": "Assign Technician",
+    "landlordEmail": "landlord2@example.com"
+  },
+  {
+    "maintenanceName": "Electrical Outlet Not Working",
+    "address": "789 Oak Lane, Greentown",
+    "description": "The electrical outlet in the bedroom stopped working suddenly. No power when devices are plugged in.",
+    "type": "Electrical",
+    "dateReported": "2023-10-25T17:45:00Z",
+    "tenantName": "Priya",
+    "tenantSurname": "Naidoo",
+    "tenantEmail": "priya.naidoo@example.com",
+    "status": "Resolved",
+    "action": "Mark as resolved",
+    "landlordEmail": "landlord3@example.com"
+  },
+  {
+    "maintenanceName": "Air Conditioning Failure",
+    "address": "101 Campus Road, University Town",
+    "description": "The AC unit isn't cooling properly despite being set to the lowest temperature. Makes strange noises when running.",
+    "type": "HVAC",
+    "dateReported": "2023-11-01T11:20:00Z",
+    "tenantName": "Thabo",
+    "tenantSurname": "Molefe",
+    "tenantEmail": "thabo.molefe@example.com",
+    "status": "In Progress",
+    "action": "Assign Technician",
+    "landlordEmail": "landlord4@example.com"
+  },
+  {
+    "maintenanceName": "Garage Door Opener Malfunction",
+    "address": "222 Riverbank Drive, Waterside",
+    "description": "The garage door opener remote stopped working. The door can only be operated manually now.",
+    "type": "Appliance",
+    "dateReported": "2023-11-05T08:00:00Z",
+    "tenantName": "Amina",
+    "tenantSurname": "Mohammed",
+    "tenantEmail": "amina.m@example.com",
+    "status": "Open",
+    "action": "Assign Technician",
+    "landlordEmail": "landlord5@example.com"
+  },
+  {
+    "maintenanceName": "Mold in Bathroom",
+    "address": "123 Greenfield Avenue, Springfield",
+    "description": "Black mold has appeared on the bathroom ceiling and walls, especially around the shower area.",
+    "type": "Cleaning",
+    "dateReported": "2023-11-10T13:10:00Z",
+    "tenantName": "Lerato",
+    "tenantSurname": "Mbeki",
+    "tenantEmail": "lerato.mbeki@example.com",
+    "status": "Open",
+    "action": "Assign Technician",
+    "landlordEmail": "landlord1@example.com"
+  },
+  {
+    "maintenanceName": "Garbage Disposal Jammed",
+    "address": "456 Central Street, Metropolis",
+    "description": "The garbage disposal is making humming noise but not grinding. Likely something stuck in the mechanism.",
+    "type": "Appliance",
+    "dateReported": "2023-11-12T18:30:00Z",
+    "tenantName": "James",
+    "tenantSurname": "van der Merwe",
+    "tenantEmail": "james.vdm@example.com",
+    "status": "Resolved",
+    "action": "Mark as resolved",
+    "landlordEmail": "landlord2@example.com"
+  }
+],
+  "applications": [
+  {
+    "status": "Pending",
+    "name": "Nomsa",
+    "surname": "Dlamini",
+    "email": "nomsa.dlamini@example.com",
+    "propertyAddress": "123 Greenfield Avenue, Springfield",
+    "rentAmount": 8500,
+    "phoneNumber": "0711222333",
+    "id": "app-001",
+    "personalStreetName": "27 Jacaranda Street",
+    "personalSuburb": "Soweto",
+    "personalProvince": "Gauteng",
+    "personalPostalCode": "1809",
+    "personalCountry": "South Africa",
+    "bio": "Third-year accounting student at UJ looking for safe student accommodation",
+    "race": "Black",
+    "gender": "Female",
+    "studentID": "UJ2021123",
+    "university": "University of Johannesburg",
+    "password": "securepass123",
+    "appliedPropertyAddress": "123 Greenfield Avenue, Springfield",
+    "idCopy": "https://example.com/docs/nomsa-id.jpg",
+    "proofOfAddress": "https://example.com/docs/nomsa-proof.pdf",
+    "affidavit": "https://example.com/docs/nomsa-affidavit.pdf",
+    "landlordEmail": "landlord1@example.com"
+  },
+  {
+    "status": "Approved",
+    "name": "Pieter",
+    "surname": "Botha",
+    "email": "pieter.botha@example.com",
+    "propertyAddress": "456 Central Street, Metropolis",
+    "rentAmount": 7500,
+    "phoneNumber": "0822333444",
+    "id": "app-002",
+    "personalStreetName": "15 Protea Road",
+    "personalSuburb": "Pretoria North",
+    "personalProvince": "Gauteng",
+    "personalPostalCode": "0116",
+    "personalCountry": "South Africa",
+    "bio": "Engineering graduate starting first job, needs accommodation near work",
+    "race": "White",
+    "gender": "Male",
+    "studentID": "UP2019456",
+    "university": "University of Pretoria",
+    "password": "engineering2023",
+    "appliedPropertyAddress": "456 Central Street, Metropolis",
+    "idCopy": "https://example.com/docs/pieter-id.jpg",
+    "proofOfAddress": "https://example.com/docs/pieter-proof.pdf",
+    "affidavit": "https://example.com/docs/pieter-affidavit.pdf",
+    "landlordEmail": "landlord2@example.com"
+  },
+  {
+    "status": "Rejected",
+    "name": "Fatima",
+    "surname": "Khan",
+    "email": "fatima.khan@example.com",
+    "propertyAddress": "789 Oak Lane, Greentown",
+    "rentAmount": 6800,
+    "phoneNumber": "0733444555",
+    "id": "app-003",
+    "personalStreetName": "42 Palm Street",
+    "personalSuburb": "Lenasia",
+    "personalProvince": "Gauteng",
+    "personalPostalCode": "1827",
+    "personalCountry": "South Africa",
+    "bio": "Medical student needing quiet place to study near hospital",
+    "race": "Indian",
+    "gender": "Female",
+    "studentID": "WITS2020789",
+    "university": "University of the Witwatersrand",
+    "password": "medstudent456",
+    "appliedPropertyAddress": "789 Oak Lane, Greentown",
+    "idCopy": "https://example.com/docs/fatima-id.jpg",
+    "proofOfAddress": "https://example.com/docs/fatima-proof.pdf",
+    "affidavit": "https://example.com/docs/fatima-affidavit.pdf",
+    "landlordEmail": "landlord3@example.com"
+  },
+  {
+    "status": "Pending",
+    "name": "Sipho",
+    "surname": "Mthembu",
+    "email": "sipho.mthembu@example.com",
+    "propertyAddress": "101 Campus Road, University Town",
+    "rentAmount": 5500,
+    "phoneNumber": "0844555666",
+    "id": "app-004",
+    "personalStreetName": "8 Acacia Avenue",
+    "personalSuburb": "Mamelodi",
+    "personalProvince": "Gauteng",
+    "personalPostalCode": "0122",
+    "personalCountry": "South Africa",
+    "bio": "First-year student looking for affordable shared accommodation",
+    "race": "Black",
+    "gender": "Male",
+    "studentID": "TUT2023012",
+    "university": "Tshwane University of Technology",
+    "password": "firstyear2023",
+    "appliedPropertyAddress": "101 Campus Road, University Town",
+    "idCopy": "https://example.com/docs/sipho-id.jpg",
+    "proofOfAddress": "https://example.com/docs/sipho-proof.pdf",
+    "affidavit": "https://example.com/docs/sipho-affidavit.pdf",
+    "landlordEmail": "landlord4@example.com"
+  },
+  {
+    "status": "Approved",
+    "name": "Anika",
+    "surname": "Patel",
+    "email": "anika.patel@example.com",
+    "propertyAddress": "222 Riverbank Drive, Waterside",
+    "rentAmount": 7200,
+    "phoneNumber": "0765666777",
+    "id": "app-005",
+    "personalStreetName": "33 Lotus Road",
+    "personalSuburb": "Durban North",
+    "personalProvince": "KwaZulu-Natal",
+    "personalPostalCode": "4051",
+    "personalCountry": "South Africa",
+    "bio": "Law student needing secure accommodation near campus",
+    "race": "Indian",
+    "gender": "Female",
+    "studentID": "UKZN2022456",
+    "university": "University of KwaZulu-Natal",
+    "password": "lawstudent789",
+    "appliedPropertyAddress": "222 Riverbank Drive, Waterside",
+    "idCopy": "https://example.com/docs/anika-id.jpg",
+    "proofOfAddress": "https://example.com/docs/anika-proof.pdf",
+    "affidavit": "https://example.com/docs/anika-affidavit.pdf",
+    "landlordEmail": "landlord5@example.com"
+  }
+],
+  "messages": [
+  {
+    "landlordEmail": "landlord1@example.com",
+    "tenantEmail": "lerato.mbeki@example.com",
+    "dateTime": "2023-11-01T09:15:00Z",
+    "subject": "Rent Payment Reminder",
+    "message": "Hi Lerato, just a friendly reminder that your rent payment is due by the 5th of this month. Please ensure the payment is made on time. Let me know if you have any questions.",
+    "status": "seen"
+  },
+  {
+    "landlordEmail": "landlord2@example.com",
+    "tenantEmail": "james.vdm@example.com",
+    "dateTime": "2023-11-02T14:30:00Z",
+    "subject": "Maintenance Request Update",
+    "message": "Hello James, I've received your maintenance request about the broken window. A technician will be coming by on Friday between 10am-12pm. Please ensure someone is home to let them in.",
+    "status": "seen"
+  },
+  {
+    "landlordEmail": "landlord3@example.com",
+    "tenantEmail": "priya.naidoo@example.com",
+    "dateTime": "2023-11-03T11:45:00Z",
+    "subject": "Application Status",
+    "message": "Dear Priya, thank you for your application. We've reviewed it and unfortunately the property has been rented to another tenant. We'll keep your application on file in case anything becomes available.",
+    "status": "not seen"
+  },
+  {
+    "landlordEmail": "landlord4@example.com",
+    "tenantEmail": "thabo.molefe@example.com",
+    "dateTime": "2023-11-04T16:20:00Z",
+    "subject": "Lease Renewal",
+    "message": "Hi Thabo, your lease is coming up for renewal next month. Please let me know by the 15th if you'd like to renew for another year. The rent will remain the same.",
+    "status": "seen"
+  },
+  {
+    "landlordEmail": "landlord5@example.com",
+    "tenantEmail": "amina.m@example.com",
+    "dateTime": "2023-11-05T10:05:00Z",
+    "subject": "Parking Space",
+    "message": "Good morning Amina, I wanted to inform you that the additional parking space you requested has become available. The cost is R200/month extra. Let me know if you're interested.",
+    "status": "not seen"
+  },
+  {
+    "landlordEmail": "landlord1@example.com",
+    "tenantEmail": "lerato.mbeki@example.com",
+    "dateTime": "2023-11-06T13:25:00Z",
+    "subject": "Thank you for payment",
+    "message": "Hi Lerato, I've received your rent payment for this month. Thank you for paying on time. Here's your receipt: [attachment]",
+    "status": "seen"
+  },
+  {
+    "landlordEmail": "landlord2@example.com",
+    "tenantEmail": "james.vdm@example.com",
+    "dateTime": "2023-11-07T08:40:00Z",
+    "subject": "Inspection Notice",
+    "message": "Hello James, we'll be conducting our quarterly property inspection next Tuesday at 2pm. This should take about 30 minutes. No need to be present unless you have specific concerns.",
+    "status": "not seen"
+  }
+]
+}
