@@ -12,6 +12,8 @@ export class LandlordPropertiesComponent {
 
   router = inject(Router);
 
+  propertyImageUrl: string = 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg';
+
   gotoAddProperty(){
     this.router.navigate(['/addpropertyll']);
   }

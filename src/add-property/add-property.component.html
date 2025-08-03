@@ -2,131 +2,270 @@
 <div class="main-dashboard-section">
   <div class="white-main-section">
     <div class="form-header">
-      <button class="goback-btn" (click)="goBack()">
-        <i class="bi bi-x-lg"></i>
+      <button class="goback-btn" (click)="goBack()" aria-label="Go back">
+        <i class="bi bi-arrow-left"></i> Go Back to Listing
       </button>
-      <h1 class="property-title">Add a Property</h1>
-      <div class="divider"></div>
-      <p class="form-subtitle">Fill in the details for your new property listing.</p>
+      <div class="header-content">
+        <h1 class="property-title">Add a Property</h1>
+        <p class="form-subtitle">Fill in the details for your new property listing</p>
+      </div>
     </div>
 
     <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" class="property-form">
-      <div class="form-group">
-        <label for="propertyName">Property Name</label>
-        <input type="text" id="propertyName" formControlName="propertyName" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="address">Address</label>
-        <input type="text" id="address" formControlName="address" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="propertyType">Property Type</label>
-        <select id="propertyType" formControlName="propertyType" class="form-control">
-          <option value="">Select property type</option>
-          <option value="apartment">Apartment</option>
-          <option value="house">House</option>
-          <option value="townhouse">Townhouse</option>
-          <option value="studio">Studio</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="monthlyRent">Monthly Rent (R)</label>
-        <input type="number" id="monthlyRent" formControlName="monthlyRent" class="form-control" (input)="calculateFee()">
-        <span class="fee-display">Estimated Listing Fee: R {{listingFee | number:'1.2-2'}} (5% of monthly rent)</span>
-      </div>
-
-      <div class="form-group">
-        <label for="bedrooms">Number of Bedrooms</label>
-        <input type="number" id="bedrooms" formControlName="bedrooms" class="form-control" placeholder="e.g., Studio (0), 1, 2 etc">
-      </div>
-
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea id="description" formControlName="description" class="form-control" rows="4" 
-                  placeholder="Provide a detailed description of your property"></textarea>
-      </div>
-
-       <!-- Transport Options Section -->
-      <div class="form-group transport-section">
-        <label>Transport Options</label>
-        <div class="multi-input-container">
-          <input type="text" placeholder="Transport name (e.g., Metro Station)" 
-                 [(ngModel)]="newTransport.name" [ngModelOptions]="{standalone: true}"
-                 class="form-control">
-          <input type="text" placeholder="Description (e.g., 5 min walk)" 
-                 [(ngModel)]="newTransport.description" [ngModelOptions]="{standalone: true}"
-                 class="form-control">
-          <button type="button" class="add-btn" (click)="addTransport()">
-            <i class="bi bi-plus"></i> Add
-          </button>
+      <!-- Basic Information Section -->
+      <fieldset class="form-section">
+        <legend>Basic Information</legend>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="propertyName">Property Name *</label>
+            <input type="text" id="propertyName" formControlName="propertyName" class="form-control" 
+                   placeholder="e.g., Sunnyvale Apartments">
+            <div *ngIf="propertyForm.get('propertyName')?.invalid && propertyForm.get('propertyName')?.touched" 
+                 class="error-message">
+              Property name is required (max 100 characters)
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="propertyType">Property Type *</label>
+            <select id="propertyType" formControlName="propertyType" class="form-control">
+              <option value="" disabled selected>Select property type</option>
+              <option *ngFor="let type of propertyTypes" [value]="type.toLowerCase()">{{type}}</option>
+            </select>
+            <div *ngIf="propertyForm.get('propertyType')?.invalid && propertyForm.get('propertyType')?.touched" 
+                 class="error-message">
+              Please select a property type
+            </div>
+          </div>
         </div>
-        <div class="items-list" *ngIf="transportOptions.length > 0">
-          <div class="item-tag" *ngFor="let transport of transportOptions; let i = index">
-            <span class="item-name">{{transport.name}}</span>
-            <span class="item-desc">{{transport.description}}</span>
-            <button class="remove-item" (click)="removeTransport(i)">
-              <i class="bi bi-x"></i>
+        
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea id="description" formControlName="description" class="form-control" rows="4"
+                    placeholder="Describe the property features, amenities, and unique qualities"></textarea>
+          <div class="char-counter">{{ propertyForm.get('description')?.value?.length || 0 }}/1000</div>
+          <div *ngIf="propertyForm.get('description')?.invalid && propertyForm.get('description')?.touched" 
+               class="error-message">
+            Description must be between 20-1000 characters
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Location Information Section -->
+      <fieldset class="form-section">
+        <legend>Location Details</legend>
+        
+        <div class="form-group">
+          <label for="address">Street Address *</label>
+          <input type="text" id="address" formControlName="address" class="form-control" 
+                 placeholder="e.g., 123 Main Street">
+          <div *ngIf="propertyForm.get('address')?.invalid && propertyForm.get('address')?.touched" 
+               class="error-message">
+            Street address is required
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="unitNumber">Unit/Apartment Number</label>
+            <input type="text" id="unitNumber" formControlName="unitNumber" class="form-control" 
+                   placeholder="e.g., Unit 5">
+          </div>
+          
+          <div class="form-group">
+            <label for="suburb">Suburb *</label>
+            <input type="text" id="suburb" formControlName="suburb" class="form-control" 
+                   placeholder="e.g., Sunnyside">
+            <div *ngIf="propertyForm.get('suburb')?.invalid && propertyForm.get('suburb')?.touched" 
+                 class="error-message">
+              Suburb is required
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City *</label>
+            <input type="text" id="city" formControlName="city" class="form-control" 
+                   placeholder="e.g., Pretoria">
+            <div *ngIf="propertyForm.get('city')?.invalid && propertyForm.get('city')?.touched" 
+                 class="error-message">
+              City is required
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="postalCode">Postal Code *</label>
+            <input type="text" id="postalCode" formControlName="postalCode" class="form-control" 
+                   placeholder="e.g., 0001" maxlength="4">
+            <div *ngIf="propertyForm.get('postalCode')?.invalid && propertyForm.get('postalCode')?.touched" 
+                 class="error-message">
+              Valid 4-digit postal code required
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="province">Province *</label>
+          <select id="province" formControlName="province" class="form-control">
+            <option value="" disabled selected>Select a Province</option>
+            <option value="Eastern Cape">Eastern Cape</option>
+            <option value="Free State">Free State</option>
+            <option value="Gauteng">Gauteng</option>
+            <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+            <option value="Limpopo">Limpopo</option>
+            <option value="Mpumalanga">Mpumalanga</option>
+            <option value="Northern Cape">Northern Cape</option>
+            <option value="North West">North West</option>
+            <option value="Western Cape">Western Cape</option>
+          </select>
+          <div *ngIf="propertyForm.get('province')?.invalid && propertyForm.get('province')?.touched" 
+               class="error-message">
+            Please select a province
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Property Details Section -->
+      <fieldset class="form-section">
+        <legend>Property Details</legend>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bedrooms">Bedrooms *</label>
+            <select id="bedrooms" formControlName="bedrooms" class="form-control">
+              <option value="" disabled selected>Select number</option>
+              <option value="0">Studio (0)</option>
+              <option *ngFor="let num of [1,2,3,4,5,6,7,8,9,10]" [value]="num">{{num}}</option>
+            </select>
+            <div *ngIf="propertyForm.get('bedrooms')?.invalid && propertyForm.get('bedrooms')?.touched" 
+                 class="error-message">
+              Please select number of bedrooms
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="monthlyRent">Monthly Rent (R) *</label>
+            <div class="input-with-icon">
+              <span class="currency">R</span>
+              <input type="number" id="monthlyRent" formControlName="monthlyRent" class="form-control" 
+                     (input)="calculateFee()" min="1" step="100" placeholder="e.g., 5000">
+            </div>
+            <div *ngIf="propertyForm.get('monthlyRent')?.invalid && propertyForm.get('monthlyRent')?.touched" 
+                 class="error-message">
+              Valid rent amount required (R1-R100,000)
+            </div>
+            <div class="fee-display" *ngIf="listingFee > 0">
+              Estimated Listing Fee: <strong>R {{listingFee | number:'1.2-2'}}</strong> (5% of monthly rent)
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Target Market Section -->
+      <fieldset class="form-section">
+        <legend>Target Market</legend>
+        
+        <div class="form-group">
+          <label for="university">Nearby University</label>
+          <select id="university" formControlName="university" class="form-control">
+            <option value="" disabled selected>Select a university</option>
+            <option *ngFor="let unis of universityList" [value]="unis">{{ unis }}</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="college">Nearby College</label>
+          <select id="college" formControlName="college" class="form-control">
+            <option value="" disabled selected>Select a college</option>
+            <option *ngFor="let college of techCollegeList" [value]="college">{{ college }}</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <!-- Amenities Sections -->
+      <div class="amenities-sections">
+        <!-- Transport Options Section -->
+        <div class="form-group transport-section">
+          <label>Transport Options</label>
+          <div class="multi-input-container">
+            <input type="text" placeholder="Transport name (e.g., Metro Station)" 
+                   [(ngModel)]="newTransport.name" [ngModelOptions]="{standalone: true}"
+                   class="form-control">
+            <input type="text" placeholder="Distance/Description (e.g., 5 min walk)" 
+                   [(ngModel)]="newTransport.description" [ngModelOptions]="{standalone: true}"
+                   class="form-control">
+            <button type="button" class="add-btn" (click)="addTransport()" [disabled]="!newTransport.name || !newTransport.description">
+              <i class="bi bi-plus"></i> Add
             </button>
+          </div>
+          <div class="items-list" *ngIf="transportOptions.length > 0">
+            <div class="item-tag" *ngFor="let transport of transportOptions; let i = index">
+              <span class="item-name">{{transport.name}}</span>
+              <span class="item-desc">{{transport.description}}</span>
+              <button type="button" class="remove-item" (click)="removeTransport(i)" aria-label="Remove transport option">
+                <i class="bi bi-x"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shops & Services Section -->
+        <div class="form-group shops-section">
+          <label>Shops & Services</label>
+          <div class="multi-input-container">
+            <input type="text" placeholder="Shop/Service name (e.g., Supermarket)" 
+                   [(ngModel)]="newShop.name" [ngModelOptions]="{standalone: true}"
+                   class="form-control">
+            <input type="text" placeholder="Distance/Description (e.g., 10 min walk)" 
+                   [(ngModel)]="newShop.description" [ngModelOptions]="{standalone: true}"
+                   class="form-control">
+            <button type="button" class="add-btn" (click)="addShop()" [disabled]="!newShop.name || !newShop.description">
+              <i class="bi bi-plus"></i> Add
+            </button>
+          </div>
+          <div class="items-list" *ngIf="shopsServices.length > 0">
+            <div class="item-tag" *ngFor="let shop of shopsServices; let i = index">
+              <span class="item-name">{{shop.name}}</span>
+              <span class="item-desc">{{shop.description}}</span>
+              <button type="button" class="remove-item" (click)="removeShop(i)" aria-label="Remove shop/service">
+                <i class="bi bi-x"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Shops & Services Section -->
-      <div class="form-group shops-section">
-        <label>Shops & Services</label>
-        <div class="multi-input-container">
-          <input type="text" placeholder="Shop/Service name (e.g., Supermarket)" 
-                 [(ngModel)]="newShop.name" [ngModelOptions]="{standalone: true}"
-                 class="form-control">
-          <input type="text" placeholder="Description (e.g., 10 min walk)" 
-                 [(ngModel)]="newShop.description" [ngModelOptions]="{standalone: true}"
-                 class="form-control">
-          <button type="button" class="add-btn" (click)="addShop()">
-            <i class="bi bi-plus"></i> Add
-          </button>
-        </div>
-        <div class="items-list" *ngIf="shopsServices.length > 0">
-          <div class="item-tag" *ngFor="let shop of shopsServices; let i = index">
-            <span class="item-name">{{shop.name}}</span>
-            <span class="item-desc">{{shop.description}}</span>
-            <button class="remove-item" (click)="removeShop(i)">
-              <i class="bi bi-x"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    
-
-      <div class="form-group">
-        <label>Upload Images (minimum 8 pictures)</label>
-        <div class="file-upload-container">
-          <input type="file" id="propertyImages" (change)="onFileChange($event)" multiple accept="image/*" style="display: none;">
-          <label for="propertyImages" class="file-upload-btn">
-            <i class="bi bi-cloud-arrow-up"></i> Choose Files
+      <!-- Single Image Upload Section -->
+      <div class="form-group image-upload-section">
+        <label>Property Image *</label>
+        <div class="file-upload-container" [class.has-file]="selectedFile">
+          <input type="file" id="propertyImage" (change)="onFileChange($event)" accept="image/*" style="display: none;">
+          <label for="propertyImage" class="file-upload-btn">
+            <i class="bi bi-cloud-arrow-up" style="color: white;"></i> 
+            <span style="color: white; margin: 5px;">{{ selectedFile ? 'Change Image' : 'Choose Image' }}</span>
           </label>
-          <div class="file-names" *ngIf="selectedFiles.length > 0">
-            {{selectedFiles.length}} file(s) selected
-          </div>
-          <div class="file-names" *ngIf="selectedFiles.length === 0">
-            No files chosen
+          <div class="file-requirements">
+            <i class="bi bi-info-circle"></i> Upload one high-quality image (max 10MB)
           </div>
         </div>
-        <div class="image-preview-container" *ngIf="selectedFiles.length > 0">
-          <div class="image-preview" *ngFor="let file of selectedFiles; let i = index">
-            <img [src]="getPreview(file)">
-            <button class="remove-image" (click)="removeImage(i)">
-              <i class="bi bi-x"></i>
-            </button>
-          </div>
+        <div class="image-preview-container" *ngIf="selectedFile">
+          <div *ngIf="previewUrl">
+          <img [src]="previewUrl" alt="Preview" style="max-width: 200px;" />
+          <button type="button" (click)="removeImage()" class="removeImage">Remove Image</button>
+        </div>
+
         </div>
       </div>
 
-      <button type="submit" class="submit-btn" [disabled]="!propertyForm.valid || selectedFiles.length < 8">
-        Add Property
-      </button>
+      <div class="form-actions">
+        <button type="button" class="cancel-btn" (click)="goBack()">Cancel</button>
+        <button type="submit" class="submit-btn" [disabled]="propertyForm.invalid || !selectedFile">
+          <span *ngIf="!isSubmitting">Submit Property</span>
+          <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
+      </div>
     </form>
   </div>
 </div>

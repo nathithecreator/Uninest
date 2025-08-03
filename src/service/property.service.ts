@@ -1,18 +1,40 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Property } from '../models/Property.model';
 import { environment } from '../environments';
-import {Property} from '../model/property.model';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class PropertyService {
-  API: string = environment.apiUrl;
+  private apiUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) 
-  { 
-    
+  constructor(private http: HttpClient) {}
+
+  // Create a new property
+  createProperty(propertyData: Property): Observable<Property> {
+  return this.http.post<Property>(`${this.apiUrl}/properties`, propertyData);
+}
+
+
+  // Get all properties
+  getAllProperties(): Observable<Property[]> {
+    return this.http.get<Property[]>(`${this.apiUrl}/properties`);
+  }
+
+  // Get property by ID
+  getPropertyById(id: number): Observable<Property> {
+    return this.http.get<Property>(`${this.apiUrl}/properties/${id}`);
+  }
+
+  // Update property
+  updateProperty(id: number, propertyData: FormData): Observable<Property> {
+    return this.http.put<Property>(`${this.apiUrl}/properties/${id}`, propertyData);
+  }
+
+  // Delete property
+  deleteProperty(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/properties/${id}`);
   }
 }
