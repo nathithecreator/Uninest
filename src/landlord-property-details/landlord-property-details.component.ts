@@ -1,58 +1,70 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute,RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { PropertyService } from '../service/property.service';
+import { Property } from '../models/Property.model';
 
 @Component({
   selector: 'app-landlord-property-details',
-  imports: [NavDashboardComponent, CommonModule],
+  standalone: true,
+  imports: [NavDashboardComponent, CommonModule,RouterLink],
   templateUrl: './landlord-property-details.component.html',
-  styleUrl: './landlord-property-details.component.css'
+  styleUrls: ['./landlord-property-details.component.css']
 })
-export class LandlordPropertyDetailsComponent {
-  router = inject(Router);
+export class LandlordPropertyDetailsComponent implements OnInit {
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private propertyService = inject(PropertyService);
 
-  // Sample transport options data
-  transportOptions = [
-    {
-      name: 'Braamfontein Station',
-      description: '5 min walk'
-    },
-    {
-      name: 'Metro Bus Stop',
-      description: '2 min walk'
-    },
-    {
-      name: 'Uber Zone',
-      description: 'Always available'
-    }
-  ];
+  property: Property | null = null;
+  isLoading = true;
 
-  // Sample shops & services data
-  shopsServices = [
-    {
-      name: 'Pick n Pay',
-      description: '10 min walk'
-    },
-    {
-      name: 'Wits University',
-      description: '15 min walk'
-    },
-    {
-      name: 'Coffee Shop',
-      description: 'Next door'
-    },
-    {
-      name: '24/7 Pharmacy',
-      description: '5 min walk'
+  ngOnInit(): void {
+    this.loadPropertyDetails();
+  }
+
+  loadPropertyDetails() {
+    const propertyId = this.route.snapshot.paramMap.get('id');
+    if (propertyId) {
+      this.propertyService.getPropertyById(+propertyId).subscribe({
+        next: (property) => {
+          this.property = property;
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error('Failed to load property:', error);
+          this.isLoading = false;
+          // Optionally redirect to properties list
+          this.router.navigate(['/propertiesll']);
+        }
+      });
+    } else {
+      this.router.navigate(['/propertiesll']);
     }
-  ];
+  }
 
   gotoProperties() {
     this.router.navigate(['/propertiesll']);
   }
 
-  editProperty() {
-    this.router.navigate(['/editproperty']);
+  editProperty(id: number) {
+    this.router.navigate(['/editproperty', id]);
+  }
+
+  togglePropertyStatus() {
+    if (!this.property) return;
+    
+    const newStatus = this.property.status === 'Available' ? 'Inactive' : 'Available';
+    this.propertyService.updateProperty(this.property.id, { status: newStatus }).subscribe({
+      next: () => {
+        if (this.property) {
+          this.property.status = newStatus;
+        }
+      },
+      error: (error) => {
+        console.error('Failed to update status:', error);
+      }
+    });
   }
 }

@@ -10,139 +10,113 @@
       <p class="form-subtitle">Edit the details for your property listing.</p>
     </div>
 
-    <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()" class="property-form">
-      <div class="form-group">
-        <label for="propertyName">Property Name</label>
-        <input type="text" id="propertyName" formControlName="propertyName" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="address">Address</label>
-        <input type="text" id="address" formControlName="address" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="propertyType">Property Type</label>
-        <select id="propertyType" formControlName="propertyType" class="form-control">
-          <option value="">Select property type</option>
-          <option value="apartment">Apartment</option>
-          <option value="house">House</option>
-          <option value="townhouse">Townhouse</option>
-          <option value="studio">Studio</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="monthlyRent">Monthly Rent (R)</label>
-        <input type="number" id="monthlyRent" formControlName="monthlyRent" class="form-control" (input)="calculateFee()">
-        <span class="fee-display">Estimated Listing Fee: R {{listingFee | number:'1.2-2'}} (5% of monthly rent)</span>
-      </div>
-
-      <div class="form-group">
-        <label for="bedrooms">Number of Bedrooms</label>
-        <input type="number" id="bedrooms" formControlName="bedrooms" class="form-control" placeholder="e.g., Studio (0), 1, 2 etc">
-      </div>
-
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea id="description" formControlName="description" class="form-control" rows="4" 
-                  placeholder="Provide a detailed description of your property"></textarea>
-      </div>
-
-      <!-- Transport Options Section -->
-<div class="form-group transport-section">
-  <label>Transport Options</label>
-  <div class="multi-input-container">
-    <input type="text" placeholder="Transport name (e.g., Metro Station)" 
-           [(ngModel)]="newTransport.name" [ngModelOptions]="{standalone: true}"
-           class="form-control">
-    <input type="text" placeholder="Description (e.g., 5 min walk)" 
-           [(ngModel)]="newTransport.description" [ngModelOptions]="{standalone: true}"
-           class="form-control">
-    <button type="button" class="add-btn" (click)="addTransport()">
-      <i class="bi bi-plus"></i> {{editingTransportIndex !== null ? 'Update' : 'Add'}}
-    </button>
-    <button *ngIf="editingTransportIndex !== null" type="button" class="cancel-btn" (click)="cancelEditTransport()">
-      Cancel
-    </button>
-  </div>
-  <div class="items-list" *ngIf="transportOptions.length > 0">
-    <div class="item-tag" *ngFor="let transport of transportOptions; let i = index">
-      <span class="item-name">{{transport.name}}</span>
-      <span class="item-desc">{{transport.description}}</span>
-      <div class="item-actions">
-        <button class="edit-item" (click)="editTransport(i)">
-          <i class="bi bi-pencil"></i>
-        </button>
-        <button class="remove-item" (click)="removeTransport(i)">
-          <i class="bi bi-x"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Shops & Services Section -->
-<div class="form-group shops-section">
-  <label>Shops & Services</label>
-  <div class="multi-input-container">
-    <input type="text" placeholder="Shop/Service name (e.g., Supermarket)" 
-           [(ngModel)]="newShop.name" [ngModelOptions]="{standalone: true}"
-           class="form-control">
-    <input type="text" placeholder="Description (e.g., 10 min walk)" 
-           [(ngModel)]="newShop.description" [ngModelOptions]="{standalone: true}"
-           class="form-control">
-    <button type="button" class="add-btn" (click)="addShop()">
-      <i class="bi bi-plus"></i> {{editingShopIndex !== null ? 'Update' : 'Add'}}
-    </button>
-    <button *ngIf="editingShopIndex !== null" type="button" class="cancel-btn" (click)="cancelEditShop()">
-      Cancel
-    </button>
-  </div>
-  <div class="items-list" *ngIf="shopsServices.length > 0">
-    <div class="item-tag" *ngFor="let shop of shopsServices; let i = index">
-      <span class="item-name">{{shop.name}}</span>
-      <span class="item-desc">{{shop.description}}</span>
-      <div class="item-actions">
-        <button class="edit-item" (click)="editShop(i)">
-          <i class="bi bi-pencil"></i>
-        </button>
-        <button class="remove-item" (click)="removeShop(i)">
-          <i class="bi bi-x"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-      <div class="form-group">
-        <div class="property-image"></div>
-        <label>Upload Images (minimum 8 pictures)</label>
-        <div class="file-upload-container">
-          <input type="file" id="propertyImages" (change)="onFileChange($event)" multiple accept="image/*" style="display: none;">
-          <label for="propertyImages" class="file-upload-btn">
-            <i class="bi bi-cloud-arrow-up"></i> Choose Files
-          </label>
-          <div class="file-names" *ngIf="selectedFiles.length > 0">
-            {{selectedFiles.length}} file(s) selected
-          </div>
-          <div class="file-names" *ngIf="selectedFiles.length === 0">
-            No files chosen
-          </div>
+    <form (ngSubmit)="updateProperty()" class="property-form">
+      <div class="form-section">
+        <div class="form-group">
+          <label for="propertyName">Property Name</label>
+          <input type="text" id="propertyName" 
+                 [(ngModel)]="property.propertyName" 
+                 name="propertyName"
+                 class="form-control"
+                 required>
         </div>
-        <div class="image-preview-container" *ngIf="selectedFiles.length > 0">
-          <div class="image-preview" *ngFor="let file of selectedFiles; let i = index">
-            <img [src]="getPreview(file)">
-            <button class="remove-image" (click)="removeImage(i)">
-              <i class="bi bi-x"></i>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" 
+                 [(ngModel)]="property.streetAddress" 
+                 name="address"
+                 class="form-control"
+                 required>
+        </div>
+
+        <div class="form-group">
+          <label for="propertyType">Property Type</label>
+          <select id="propertyType" 
+                  [(ngModel)]="property.type" 
+                  name="propertyType"
+                  class="form-control"
+                  required>
+            <option value="">Select property type</option>
+            <option value="apartment">Apartment</option>
+            <option value="house">House</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="studio">Studio</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="monthlyRent">Monthly Rent (R)</label>
+          <input type="number" id="monthlyRent" 
+                 [(ngModel)]="property.rentAmount" 
+                 name="monthlyRent"
+                 class="form-control"
+                 (input)="calculateFee()"
+                 required>
+          <span class="fee-display">Estimated Listing Fee: R {{listingFee | number:'1.2-2'}} (5% of monthly rent)</span>
+        </div>
+
+        <div class="form-group">
+          <label for="bedrooms">Number of Bedrooms</label>
+          <input type="number" id="bedrooms" 
+                 [(ngModel)]="property.bedrooms" 
+                 name="bedrooms"
+                 class="form-control" 
+                 placeholder="e.g., Studio (0), 1, 2 etc"
+                 required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" 
+                    [(ngModel)]="property.description" 
+                    name="description"
+                    class="form-control" 
+                    rows="4"
+                    placeholder="Provide a detailed description of your property"
+                    required></textarea>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-group">
+          <label>Main Property Image</label>
+          
+          <div class="existing-image-container" *ngIf="imagePreview && !selectedFile">
+            <img [src]="imagePreview" class="existing-image">
+            <button type="button" class="remove-existing-btn" (click)="imagePreview = null">
+              <i class="bi bi-x"></i> Remove
             </button>
           </div>
+          
+          <div class="file-upload-container" [class.has-file]="selectedFile">
+            <input type="file" id="propertyImage" 
+                   (change)="onFileSelected($event)" 
+                   accept="image/*" 
+                   style="display: none;">
+            <label for="propertyImage" class="file-upload-btn">
+              <i class="bi bi-cloud-arrow-up"></i> Choose Image
+            </label>
+            <div class="file-names" *ngIf="selectedFile">
+              {{selectedFile.name | slice:0:25 }}
+            </div>
+            <div class="file-names" *ngIf="!selectedFile && !imagePreview">
+              No image chosen
+            </div>
+          </div>
+          
+          <div class="file-requirements">
+            <i class="bi bi-info-circle"></i> Main property image (JPEG or PNG)
+          </div>
         </div>
       </div>
 
-      <button type="submit" class="submit-btn">
-        Save Property
-      </button>
+      <div class="form-actions">
+        <button type="button" class="cancel-btn" (click)="goBack()">Cancel</button>
+        <button type="submit" class="submit-btn" [disabled]="!imagePreview">
+          Save Changes
+        </button>
+      </div>
     </form>
   </div>
 </div>

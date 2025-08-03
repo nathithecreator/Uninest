@@ -1,153 +1,110 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Property } from '../models/Property.model';
+import { PropertyService } from '../service/property.service';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavDashboardComponent } from '../nav-dashboard/nav-dashboard.component';
 
 @Component({
   selector: 'app-edit-property',
-  imports: [NavDashboardComponent, ReactiveFormsModule, CommonModule, FormsModule],
+  standalone: true,
+  imports: [FormsModule, CommonModule, NavDashboardComponent],
   templateUrl: './edit-property.component.html',
-  styleUrl: './edit-property.component.css'
+  styleUrls: ['./edit-property.component.css']
 })
-export class EditPropertyComponent {
-  propertyForm: FormGroup;
-  selectedFiles: File[] = [];
+export class EditPropertyComponent implements OnInit {
+  propertyId!: number;
+  property: Property = {
+    id: 0,
+    propertyName: '',
+    streetAddress: '',
+    type: '',
+    rentAmount: 0,
+    bedrooms: '',
+    description: '',
+    mainImage: '',
+    transports: [],
+    shops: [],
+    apartmentNumber: '',
+    suburb: '',
+    city: '',
+    postalCode: '',
+    province: '',
+    status: '',
+    occupation: '',
+    listingFee: 0,
+    university: '',
+    college: '',
+    reviewsList: [],
+    landlordEmail: ''
+  };
+  imagePreview: string | null = null;
+  selectedFile: File | null = null;
   listingFee = 0;
 
-  // Transport and Shops data
-  newTransport = { name: '', description: '' };
-  transportOptions: any[] = [
-    { name: 'Braamfontein Station', description: '5 min walk' },
-    { name: 'Metro Bus Stop', description: '2 min walk' }
-  ];
+  constructor(
+    private route: ActivatedRoute,
+    private propertyService: PropertyService,
+    private router: Router,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
-  newShop = { name: '', description: '' };
-  shopsServices: any[] = [
-    { name: 'Pick n Pay', description: '10 min walk' },
-    { name: 'Wits University', description: '15 min walk' }
-  ];
+  ngOnInit(): void {
+    this.propertyId = +this.route.snapshot.paramMap.get('id')!;
+    this.loadProperty();
+  }
 
-  // For editing existing items
-  editingTransportIndex: number | null = null;
-  editingShopIndex: number | null = null;
-
-  constructor(private fb: FormBuilder) {
-    this.propertyForm = this.fb.group({
-      propertyName: ['Modern Studio Apartment', [Validators.required, Validators.maxLength(100)]],
-      address: ['123 Main St, Braamfontein', [Validators.required, Validators.maxLength(200)]],
-      propertyType: ['studio', Validators.required],
-      monthlyRent: [5500, [Validators.required, Validators.min(1), Validators.max(100000)]],
-      bedrooms: [0, [Validators.required, Validators.min(0), Validators.max(10)]],
-      description: ['This vibrant studio apartment is located in the heart of Braamfontein...', [Validators.required, Validators.minLength(20), Validators.maxLength(1000)]]
+  loadProperty(): void {
+    this.propertyService.getPropertyById(this.propertyId).subscribe({
+      next: (prop) => {
+        this.property = prop;
+        this.imagePreview = this.property.mainImage;
+        this.calculateFee();
+      },
+      error: (err) => {
+        console.error('Error loading property:', err);
+      }
     });
-
-    this.calculateFee();
   }
 
-  // Transport methods
-  addTransport() {
-    if (this.newTransport.name && this.newTransport.description) {
-      if (this.editingTransportIndex !== null) {
-        // Update existing transport
-        this.transportOptions[this.editingTransportIndex] = {...this.newTransport};
-        this.editingTransportIndex = null;
-      } else {
-        // Add new transport
-        this.transportOptions.push({...this.newTransport});
-      }
-      this.newTransport = { name: '', description: '' };
-    }
-  }
-
-  editTransport(index: number) {
-    this.editingTransportIndex = index;
-    this.newTransport = {...this.transportOptions[index]};
-  }
-
-  removeTransport(index: number) {
-    this.transportOptions.splice(index, 1);
-    if (this.editingTransportIndex === index) {
-      this.editingTransportIndex = null;
-      this.newTransport = { name: '', description: '' };
-    }
-  }
-
-  cancelEditTransport() {
-    this.editingTransportIndex = null;
-    this.newTransport = { name: '', description: '' };
-  }
-
-  // Shop methods
-  addShop() {
-    if (this.newShop.name && this.newShop.description) {
-      if (this.editingShopIndex !== null) {
-        // Update existing shop
-        this.shopsServices[this.editingShopIndex] = {...this.newShop};
-        this.editingShopIndex = null;
-      } else {
-        // Add new shop
-        this.shopsServices.push({...this.newShop});
-      }
-      this.newShop = { name: '', description: '' };
-    }
-  }
-
-  editShop(index: number) {
-    this.editingShopIndex = index;
-    this.newShop = {...this.shopsServices[index]};
-  }
-
-  removeShop(index: number) {
-    this.shopsServices.splice(index, 1);
-    if (this.editingShopIndex === index) {
-      this.editingShopIndex = null;
-      this.newShop = { name: '', description: '' };
-    }
-  }
-
-  cancelEditShop() {
-    this.editingShopIndex = null;
-    this.newShop = { name: '', description: '' };
-  }
-
-  calculateFee() {
-    const rent = this.propertyForm.get('monthlyRent')?.value;
-    this.listingFee = rent ? parseFloat((rent * 0.05).toFixed(2)) : 0;
-  }
-
-  onFileChange(event: Event) {
+  onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.selectedFiles = Array.from(input.files);
-    }
-  }
-
-  getPreview(file: File): string {
-    return URL.createObjectURL(file);
-  }
-
-  removeImage(index: number) {
-    this.selectedFiles.splice(index, 1);
-    if (this.selectedFiles[index]) {
-      URL.revokeObjectURL(this.getPreview(this.selectedFiles[index]));
-    }
-  }
-
-  onSubmit() {
-    if (this.propertyForm.valid) {
-      const formData = {
-        ...this.propertyForm.value,
-        transports: this.transportOptions,
-        shops: this.shopsServices,
-        images: this.selectedFiles
-      };
+    if (input.files && input.files[0]) {
+      this.selectedFile = input.files[0];
       
-      console.log('Form submitted', formData);
-      // Here you would typically send the data to your backend
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreview = reader.result as string;
+        this.cdRef.detectChanges();
+      };
+      reader.readAsDataURL(this.selectedFile);
     }
   }
 
-  goBack() {
-    window.history.back();
+  calculateFee(): void {
+    this.listingFee = this.property.rentAmount * 0.05;
+  }
+
+  updateProperty(): void {
+    if (!this.imagePreview) return;
+
+    const updatedProperty: Property = {
+      ...this.property,
+      mainImage: this.imagePreview
+    };
+
+    this.propertyService.updateProperty(this.propertyId, updatedProperty).subscribe({
+      next: () => {
+        this.router.navigate(['/dashboard/properties']);
+      },
+      error: (err) => {
+        console.error('Error updating property:', err);
+      }
+    });
+  }
+
+  goBack(): void {
+    this.router.navigate(['/dashboard/properties']);
   }
 }

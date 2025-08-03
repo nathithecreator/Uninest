@@ -28,9 +28,13 @@ export class PropertyService {
     return this.http.get<Property>(`${this.apiUrl}/properties/${id}`);
   }
 
-  // Update property
-  updateProperty(id: number, propertyData: FormData): Observable<Property> {
-    return this.http.put<Property>(`${this.apiUrl}/properties/${id}`, propertyData);
+  updateProperty(id: number, updates: Partial<Property>): Observable<Property> {
+  return this.http.patch<Property>(`${this.apiUrl}/properties/${id}`, updates);
+}
+
+ // Upload image
+  uploadImage(formData: FormData): Observable<{ url: string }> {
+    return this.http.post<{ url: string }>(`${this.apiUrl}/upload`, formData);
   }
 
   // Delete property

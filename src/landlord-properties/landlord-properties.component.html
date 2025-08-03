@@ -4,37 +4,43 @@
     <button class="add-property-btn" (click)="gotoAddProperty()">Add New Property</button>
 
     <div class="properties-section">
-      <!-- Property Card 1 -->
-      <div class="property-card">
+      <!-- Property Card - Loop through properties -->
+      <div class="property-card" *ngFor="let property of propertyItems">
         <div class="property-image" 
-            [style.background-image]="'url(' + propertyImageUrl + ')'">
+            [style.background-image]="'url(' + (property.mainImage || 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg') + ')'">
         </div>
-        <h3 class="property-name">Cozy Apartment 123 Main St.</h3>
+        <h3 class="property-name">{{property.propertyName}}</h3>
 
         <div class="property-detail">
           <span class="detail-label">Address: </span>
-          <span class="detail-value">456 Oak Ave, Auckland Park</span>
+          <span class="detail-value">{{property.streetAddress}}, {{property.suburb}}</span>
         </div>
 
         <div class="property-detail">
           <span class="detail-label">Rent: </span>
-          <span class="detail-value">R4800/month</span>
+          <span class="detail-value">R{{property.rentAmount | number}}/month</span>
         </div>
 
         <div class="property-detail">
           <span class="detail-label">Nearby University: </span>
-          <span class="detail-value">University of Pretoria</span>
+          <span class="detail-value">{{property.university || 'N/A'}}</span>
         </div>
 
         <div class="property-detail">
           <span class="detail-label">Nearby College: </span>
-          <span class="detail-value">TUT Pretoria Campus</span>
+          <span class="detail-value">{{property.college || 'N/A'}}</span>
         </div>
 
-        <button class="view-details-btn" (click)="gotoPropertyDetails()">View Details</button>
+        <button class="view-details-btn" 
+                [routerLink]="['/propertydetailsll/', property.id]">
+          View Details
+        </button>
       </div>
 
-     
+      <!-- Empty state -->
+      <div class="empty-state" *ngIf="propertyItems.length === 0">
+        <p>No properties found. Add your first property!</p>
+      </div>
     </div>
   </div>
 </div>

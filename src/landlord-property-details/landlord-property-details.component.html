@@ -6,16 +6,17 @@
       <button class="goback-btn" (click)="gotoProperties()" aria-label="Close">
         <i class="bi bi-arrow-left"></i> Back
       </button>
-      <h1 class="property-title">Property Details: Modern Studio Apartment</h1>
+      <h1 class="property-title">Property Details: {{property?.propertyName}}</h1>
       <div class="divider"></div>
     </div>
 
-    <div class="property-details-card">
+    <div class="property-details-card" *ngIf="property; else loading">
       <!-- First Row - Image and Status -->
       <div class="property-header">
-         
         <div class="property-image-container">
-          <div class="property-image" style="background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTg1NjQ5NTYzNzgzNjcwNzcw/original/d1a78902-38d6-41be-b9bf-01c388aa6f56.jpeg?im_w=1440');"></div>
+          <div class="property-image" 
+               [style.background-image]="'url(' + (property.mainImage || 'https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTg1NjQ5NTYzNzgzNjcwNzcw/original/d1a78902-38d6-41be-b9bf-01c388aa6f56.jpeg?im_w=1440') + ')'">
+          </div>
         </div>
         
         <div class="property-status-section">
@@ -23,22 +24,28 @@
           
           <div class="status-item">
             <span class="status-label">Status:</span>
-            <span class="status-badge active">Active</span>
+            <span class="status-badge" [ngClass]="{'active': property.status === 'Available', 'inactive': property.status !== 'Available'}">
+              {{property.status}}
+            </span>
           </div>
           
           <div class="status-item">
             <span class="status-label">Current Occupancy:</span>
-            <span class="status-value">2/2</span>
+            <span class="status-value">{{property.occupation || 'Vacant'}}</span>
           </div>
           
           <div class="status-item">
             <span class="status-label">Listing Fee:</span>
-            <span class="status-value paid">Paid</span>
+            <span class="status-value" [ngClass]="{'paid': property.listingFee > 0}">
+              {{property.listingFee > 0 ? 'Paid' : 'Unpaid'}}
+            </span>
           </div>
           
           <div class="action-buttons">
-            <button class="edit-btn" (click)="editProperty()">Edit Property</button>
-            <button class="deactivate-btn" (click)="editProperty()">Deactivate Listing</button>
+            <button class="edit-btn" [routerLink]="['/editproperty/', property.id]">Edit Property</button>
+            <button class="deactivate-btn" (click)="togglePropertyStatus()">
+              {{property.status === 'Available' ? 'Deactivate' : 'Activate'}} Listing
+            </button>
           </div>
         </div>
       </div>
@@ -50,22 +57,35 @@
         <div class="info-grid">
           <div class="info-item">
             <span class="info-label">Address:</span>
-            <span class="info-value">123 Main St, Braamfontein</span>
+            <span class="info-value">
+              {{property.streetAddress}} {{property.apartmentNumber ? ', ' + property.apartmentNumber : ''}}, 
+              {{property.suburb}}, {{property.city}}
+            </span>
           </div>
           
           <div class="info-item">
             <span class="info-label">Rent:</span>
-            <span class="info-value">R5500/month</span>
+            <span class="info-value">R{{property.rentAmount | number}}/month</span>
           </div>
           
           <div class="info-item">
             <span class="info-label">Type:</span>
-            <span class="info-value">Apartment</span>
+            <span class="info-value">{{property.type}}</span>
           </div>
           
           <div class="info-item">
-            <span class="info-label">Bedroom:</span>
-            <span class="info-value">Studio</span>
+            <span class="info-label">Bedrooms:</span>
+            <span class="info-value">{{property.bedrooms === '0' ? 'Studio' : property.bedrooms}}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">Postal Code:</span>
+            <span class="info-value">{{property.postalCode}}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">Province:</span>
+            <span class="info-value">{{property.province}}</span>
           </div>
         </div>
       </div>
@@ -74,12 +94,7 @@
       <div class="property-description">
         <h2 class="section-title">Description</h2>
         <p class="description-text">
-          This vibrant studio apartment is located in the heart of Braamfontein, 
-          perfect for students seeking a dynamic urban lifestyle. It features an open-plan living area, 
-          a compact kitchenette with modern appliances, and a private bathroom. Enjoy easy access to public transport, 
-          Wits University, and a variety of cafes and entertainment spots. 
-          Building amenities include 24/7 security, a communal laundry room, 
-          and a rooftop common area with stunning city views. Ideal for a single student or young professional.
+          {{property.description || 'No description provided'}}
         </p>
       </div>
 
@@ -87,12 +102,15 @@
       <div class="property-amenities-section">
         <h2 class="section-title">Transport Options</h2>
         <div class="amenities-list">
-          <div class="amenity-item" *ngFor="let transport of transportOptions">
+          <div class="amenity-item" *ngFor="let transport of property.transports || []">
             <i class="bi bi-bus-front"></i>
             <div class="amenity-info">
               <span class="amenity-name">{{transport.name}}</span>
               <span class="amenity-desc">{{transport.description}}</span>
             </div>
+          </div>
+          <div *ngIf="!property.transports || property.transports.length === 0" class="no-amenities">
+            No transport options listed
           </div>
         </div>
       </div>
@@ -101,15 +119,39 @@
       <div class="property-amenities-section">
         <h2 class="section-title">Shops & Services</h2>
         <div class="amenities-list">
-          <div class="amenity-item" *ngFor="let shop of shopsServices">
+          <div class="amenity-item" *ngFor="let shop of property.shops || []">
             <i class="bi bi-shop"></i>
             <div class="amenity-info">
               <span class="amenity-name">{{shop.name}}</span>
               <span class="amenity-desc">{{shop.description}}</span>
             </div>
           </div>
+          <div *ngIf="!property.shops || property.shops.length === 0" class="no-amenities">
+            No shops & services listed
+          </div>
+        </div>
+      </div>
+
+      <!-- Sixth Row - Nearby Institutions -->
+      <div class="property-info-section">
+        <h2 class="section-title">Nearby Institutions</h2>
+        <div class="info-grid">
+          <div class="info-item" *ngIf="property.university">
+            <span class="info-label">University:</span>
+            <span class="info-value">{{property.university}}</span>
+          </div>
+          <div class="info-item" *ngIf="property.college">
+            <span class="info-label">College:</span>
+            <span class="info-value">{{property.college}}</span>
+          </div>
         </div>
       </div>
     </div>
+
+    <ng-template #loading>
+      <div class="loading-spinner">
+        <p>Loading property details...</p>
+      </div>
+    </ng-template>
   </div>
 </div>

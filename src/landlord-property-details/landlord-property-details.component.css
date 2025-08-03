@@ -29,73 +29,80 @@ app-nav-dashboard {
   margin: 30px auto;
   padding: 30px;
   border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Typography */
 .property-title {
-  font-size: 30px;
-  color: #4A90E2;
-  margin-bottom: 20px;
-  font-weight: 500;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .section-title {
   font-size: 22px;
   color: #333;
-  margin-bottom: 15px;
-  font-weight: bold;
+  margin: 25px 0 15px 0;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .status-title {
-  font-size: 25px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 600;
   margin-bottom: 20px;
+  color: #333;
 }
 
-.gobackBtn{
-  display: flex;
-  justify-content: flex-end;
-  cursor: pointer;
+/* Header and Navigation */
+.form-header {
+  position: relative;
+  margin-bottom: 30px;
 }
 
 .goback-btn {
   position: absolute;
   right: 0;
   top: 0;
-  background: none;
+ background-color: #4A90E2;
   border: none;
   font-size: 1rem;
-  color: #4A90E2;
+  color: #fff;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 8px 15px;
+  border-radius: 4px;
   transition: all 0.2s;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
+  border: 1px solid #4A90E2;
+  box-shadow:
+    inset 0 2px 2px rgba(255, 255, 255, 0.6),  
+    inset 0 -2px 2px rgba(0, 0, 0, 0.6),         
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);  
 }
 
 .goback-btn:hover {
-  color: #3a7bc8;
-}
-
-.form-header {
-  margin-bottom: 2rem;
-  position: relative;
+  background-color: #4A90E2;
+  color: white;
+  transform: translateY(-2px);
 }
 
 /* Divider */
 .divider {
   height: 1px;
   background-color: #e0e0e0;
-  margin: 20px 0;
+  margin: 15px 0 25px 0;
 }
 
-/* Property Card */
+/* Property Card Container */
 .property-details-card {
-  background-color: #F5F7FA;
-  border-radius: 15px;
-  padding: 30px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background-color: #F8FAFC;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* Property Header Section */
@@ -107,21 +114,26 @@ app-nav-dashboard {
 
 .property-image-container {
   flex: 1;
+  min-width: 300px;
 }
 
 .property-image {
-  height: 300px;
+  height: 350px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 8px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .property-status-section {
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  min-width: 300px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 /* Status Items */
@@ -134,67 +146,84 @@ app-nav-dashboard {
 .status-label {
   font-weight: 600;
   margin-right: 10px;
-  min-width: 120px;
+  min-width: 140px;
   color: #4A4E69;
+  font-size: 15px;
 }
 
 .status-badge {
-  padding: 5px 15px;
-  border-radius: 15px;
+  padding: 6px 12px;
+  border-radius: 20px;
   font-weight: 500;
-  transform: translateX(28px);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .status-badge.active {
-  background-color: #FFF7ED;
-  color: #F97316;
- 
+  background-color: #E6F7EE;
+  color: #28A745;
+}
+
+.status-badge.inactive {
+  background-color: #F8F9FA;
+  color: #6C757D;
 }
 
 .status-value {
   font-weight: 500;
-  transform: translateX(10px);
+  color: #333;
 }
 
 .status-value.paid {
-  color: green;
-  transform: translateX(40px);
+  color: #28A745;
+  font-weight: 600;
 }
 
 /* Action Buttons */
 .action-buttons {
   display: flex;
   gap: 15px;
-  margin-top: 20px;
-  flex-direction: column;
+  margin-top: 25px;
 }
 
 .edit-btn, .deactivate-btn {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
+  font-size: 14px;
+  flex: 1;
+  text-align: center;
 }
 
 .edit-btn {
   background-color: #4A90E2;
   color: white;
+   box-shadow:
+    inset 0 2px 2px rgba(255, 255, 255, 0.6),  
+    inset 0 -2px 2px rgba(0, 0, 0, 0.6),         
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);   
 }
 
 .edit-btn:hover {
-  background-color: #3a7bc8;
+  background-color: #3A7BC8;
+  transform: translateY(-2px);
 }
 
 .deactivate-btn {
-  background-color: #FF6B6B;
-  color: white;
+  background-color: #F8F9FA;
+  color: #6C757D;
+  border: 1px solid #DEE2E6;
+  box-shadow:
+    inset 0 2px 2px rgba(255, 255, 255, 0.6),  
+    inset 0 -2px 2px rgba(0, 0, 0, 0.6),         
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);  
 }
 
 .deactivate-btn:hover {
-  background-color: #e05a5a;
+  background-color: #E9ECEF;
+  transform: translateY(-2px);
 }
 
 /* Property Information */
@@ -204,41 +233,48 @@ app-nav-dashboard {
 
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .info-item {
   display: flex;
+  flex-direction: column;
 }
 
 .info-label {
   font-weight: 600;
-  margin-right: 5px;
-  min-width: 80px;
+  margin-bottom: 5px;
   color: #4A4E69;
+  font-size: 14px;
+}
+
+.info-value {
+  color: #333;
+  font-size: 15px;
 }
 
 /* Description Section */
 .property-description {
-  margin-top: 30px;
+  margin: 30px 0;
 }
 
 .description-text {
-  line-height: 1.6;
+  line-height: 1.7;
   color: #555;
+  font-size: 15px;
 }
 
 /* Amenities Sections */
 .property-amenities-section {
-  margin-top: 30px;
+  margin: 30px 0;
   padding-top: 20px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #EAEDF1;
 }
 
 .amenities-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 15px;
   margin-top: 15px;
 }
@@ -246,16 +282,21 @@ app-nav-dashboard {
 .amenity-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background-color: #fff;
-  padding: 12px 15px;
+  gap: 12px;
+  background-color: white;
+  padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  width: calc(50% - 15px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.amenity-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .amenity-item i {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #4A90E2;
 }
 
@@ -267,23 +308,65 @@ app-nav-dashboard {
 .amenity-name {
   font-weight: 600;
   color: #333;
+  font-size: 14px;
 }
 
 .amenity-desc {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 13px;
+  color: #6C757D;
 }
 
+.no-amenities {
+  color: #6C757D;
+  font-style: italic;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 20px;
+}
 
+/* Loading State */
+.loading-spinner {
+  text-align: center;
+  padding: 50px;
+  color: #4A90E2;
+  font-size: 16px;
+}
 
 /* Responsive Adjustments */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .white-main-section {
-    width: 90vw;
+    width: 85vw;
   }
-  
+}
+
+@media (max-width: 992px) {
   .property-header {
     flex-direction: column;
+  }
+  
+  .property-image-container,
+  .property-status-section {
+    min-width: 100%;
+  }
+  
+  .action-buttons {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 768px) {
+  .white-main-section {
+    width: 90vw;
+    padding: 20px;
+    margin: 20px auto;
+  }
+  
+  .property-title {
+    font-size: 24px;
+  }
+  
+  .property-image {
+    height: 250px;
   }
   
   .info-grid {
@@ -291,17 +374,32 @@ app-nav-dashboard {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .white-main-section {
     width: 95vw;
-    padding: 20px;
+    padding: 15px;
+  }
+  
+  .property-title {
+    font-size: 22px;
+  }
+  
+  .section-title {
+    font-size: 20px;
   }
   
   .action-buttons {
     flex-direction: column;
   }
-
-  .amenity-item {
+  
+  .edit-btn, .deactivate-btn {
     width: 100%;
+  }
+  
+  .goback-btn {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+    justify-content: center;
   }
 }
