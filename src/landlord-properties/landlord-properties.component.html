@@ -1,7 +1,56 @@
 <app-nav-dashboard></app-nav-dashboard>
 <div class="main-dashboard-section">
   <div class="white-main-section">
-    <button class="add-property-btn" (click)="gotoAddProperty()">Add New Property</button>
+
+    <!-- Improved Title Section -->
+<div class="title-section">
+  <div class="title-content">
+    <h1 class="dashboard-title"> Properties</h1>
+    <p class="dashboard-subtitle">Manage your properties and monitor key metrics</p>
+  </div>
+  <button class="add-property-btn" (click)="gotoAddProperty()">
+    <i class="bi bi-plus-square-dotted"></i> Add Property
+  </button>
+</div>
+
+<!-- Improved Filtering Section -->
+<div class="filtering-section">
+  <div class="search-filter-container">
+    <div class="search-box">
+      <i class="bi bi-search search-icon"></i>
+      <input id="searchInput" placeholder="Search properties..." class="search-input">
+    </div>
+    <div class="filter-buttons">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Occupied</button>
+      <button class="filter-btn">Vacant</button>
+      <button class="filter-btn">Inactive</button>
+    </div>
+  </div>
+  
+  <div class="stats-container">
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="bi bi-house-door"></i>
+      </div>
+      <div class="stat-content">
+        <p class="stat-label">Total Properties</p>
+        <p class="stat-value">3</p>
+      </div>
+    </div>
+    
+    <div class="stat-card">
+      <div class="stat-icon">
+        <i class="bi bi-cash-stack"></i>
+      </div>
+      <div class="stat-content">
+        <p class="stat-label">Monthly Revenue</p>
+        <p class="stat-value">R25,000</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <div class="properties-section">
       <!-- Property Card - Loop through properties -->
