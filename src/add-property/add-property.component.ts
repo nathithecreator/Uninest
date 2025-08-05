@@ -33,6 +33,7 @@ export class AddPropertyComponent {
   isSubmitting = false;
 
   propertyTypes = ['Apartment', 'House', 'Townhouse', 'Studio', 'Cottage'];
+  propertyStatus = ['Available','Inactive','Occupied','Partially Occupied','Vacant']
 
   universityList: string[] = [
     "University of Pretoria", "University of Cape Town", "University of Johannesburg",
@@ -63,6 +64,7 @@ export class AddPropertyComponent {
       postalCode: ['', [Validators.required, Validators.pattern(/^\d{4}$/)]],
       province: ['', [Validators.required]],
       propertyType: ['', [Validators.required]],
+      propertyStatus: [this.propertyStatus[0], Validators.required],
       monthlyRent: ['', [Validators.required, Validators.min(1), Validators.max(100000)]],
       bedrooms: ['', [Validators.required, Validators.min(0), Validators.max(10)]],
       description: ['', [Validators.required, Validators.minLength(20), Validators.maxLength(1000)]],

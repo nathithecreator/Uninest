@@ -4,23 +4,62 @@ import { Router, RouterLink } from '@angular/router';
 import { PropertyService } from '../service/property.service';
 import { Property } from '../models/Property.model';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-landlord-properties',
   standalone: true,
-  imports: [NavDashboardComponent, CommonModule, RouterLink],
+  imports: [NavDashboardComponent, CommonModule, RouterLink,FormsModule],
   templateUrl: './landlord-properties.component.html',
   styleUrls: ['./landlord-properties.component.css']
 })
 export class LandlordPropertiesComponent implements OnInit {
   propertyService = inject(PropertyService);
   router = inject(Router);
-  
+  selectedFilter: string = 'All';
+  searchQuery: string = '';
+
+  totalCountProperties: number = 0;
+  Revenue: number = 0;
+
   propertyItems: Property[] = [];
+   filteredProperties: Property[] = [];
   isLoading = true;
 
   ngOnInit(): void {
     this.loadProperties();
+  }
+
+  setFilter(filter: string) {
+    this.selectedFilter = filter;
+    this.updateStats();
+  }
+
+  onSearchInput() {
+    this.applyFilters();
+  }
+
+  applyFilters() {
+    // Apply status filter first
+    let filtered = this.selectedFilter === 'All' 
+      ? [...this.propertyItems] 
+      : this.propertyItems.filter(p => p.status === this.selectedFilter);
+    
+    // Then apply search query if it exists
+    if (this.searchQuery.trim()) {
+      const query = this.searchQuery.toLowerCase().trim();
+      filtered = filtered.filter(property => 
+        property.propertyName.toLowerCase().includes(query) ||
+        property.streetAddress.toLowerCase().includes(query) ||
+        property.suburb.toLowerCase().includes(query) ||
+        property.city.toLowerCase().includes(query) ||
+        (property.university && property.university.toLowerCase().includes(query)) ||
+        (property.college && property.college.toLowerCase().includes(query))
+      );
+    }
+    
+    this.filteredProperties = filtered;
+    this.updateStats();
   }
 
   loadProperties() {
@@ -28,13 +67,28 @@ export class LandlordPropertiesComponent implements OnInit {
     this.propertyService.getAllProperties().subscribe({
       next: (data) => {
         this.propertyItems = Array.isArray(data) ? data : [];
+        this.filteredProperties = [...this.propertyItems];
         this.isLoading = false;
+        this.updateStats();  // calculate stats after data is loaded
       },
       error: (error) => {
         console.error('Failed to fetch properties:', error);
         this.isLoading = false;
       }
     });
+  }
+
+  getFilteredProperties(): Property[] {
+    if (this.selectedFilter === 'All') {
+      return this.propertyItems;
+    }
+    return this.propertyItems.filter(property => property.status === this.selectedFilter);
+  }
+
+  updateStats() {
+    const filtered = this.getFilteredProperties();
+    this.totalCountProperties = filtered.length;
+    this.Revenue = filtered.reduce((sum, property) => sum + (property.rentAmount || 0), 0);
   }
 
   gotoAddProperty() {

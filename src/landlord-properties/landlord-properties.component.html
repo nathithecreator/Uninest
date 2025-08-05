@@ -17,15 +17,58 @@
 <div class="filtering-section">
   <div class="search-filter-container">
     <div class="search-box">
-      <i class="bi bi-search search-icon"></i>
-      <input id="searchInput" placeholder="Search properties..." class="search-input">
-    </div>
-    <div class="filter-buttons">
-      <button class="filter-btn active">All</button>
-      <button class="filter-btn">Occupied</button>
-      <button class="filter-btn">Vacant</button>
-      <button class="filter-btn">Inactive</button>
-    </div>
+          <i class="bi bi-search search-icon"></i>
+          <input 
+            id="searchInput" 
+            placeholder="Search properties..." 
+            class="search-input"
+            [(ngModel)]="searchQuery"
+            (input)="onSearchInput()">
+        </div>
+    <div class="filter-buttons"> 
+  <button 
+    class="filter-btn" 
+    [class.active]="selectedFilter === 'All'" 
+    (click)="setFilter('All')">
+    All
+  </button>
+  
+  <button 
+    class="filter-btn" 
+    [class.active]="selectedFilter === 'Available'" 
+    (click)="setFilter('Available')">
+    Available
+  </button>
+
+  <button 
+    class="filter-btn" 
+    [class.active]="selectedFilter === 'Occupied'" 
+    (click)="setFilter('Occupied')">
+    Occupied
+  </button>
+
+  <button 
+    class="filter-btn" 
+    [class.active]="selectedFilter === 'Vacant'" 
+    (click)="setFilter('Vacant')">
+    Vacant
+  </button>
+
+  <button 
+    class="filter-btn" 
+    [class.active]="selectedFilter === 'Inactive'" 
+    (click)="setFilter('Inactive')">
+    Inactive
+  </button>
+
+  <button 
+    class="filter-btn" 
+    [class.active]="selectedFilter === 'Partially Occupied'" 
+    (click)="setFilter('Partially Occupied')">
+    Partially Occupied
+  </button>
+</div>
+
   </div>
   
   <div class="stats-container">
@@ -34,8 +77,10 @@
         <i class="bi bi-house-door"></i>
       </div>
       <div class="stat-content">
-        <p class="stat-label">Total Properties</p>
-        <p class="stat-value">3</p>
+        <p class="stat-label">Total </p>
+         <p class="stat-label">Properties </p>
+        
+        <p class="stat-value">{{totalCountProperties}}</p>
       </div>
     </div>
     
@@ -45,7 +90,7 @@
       </div>
       <div class="stat-content">
         <p class="stat-label">Monthly Revenue</p>
-        <p class="stat-value">R25,000</p>
+        <p class="stat-value">R {{Revenue}}</p>
       </div>
     </div>
   </div>
@@ -53,43 +98,68 @@
 
 
     <div class="properties-section">
-      <!-- Property Card - Loop through properties -->
-      <div class="property-card" *ngFor="let property of propertyItems">
-        <div class="property-image" 
-            [style.background-image]="'url(' + (property.mainImage || 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg') + ')'">
+      
+      <ng-container *ngFor="let property of propertyItems">
+        <div 
+          class="property-card" 
+          *ngIf="selectedFilter === 'All' || property.status === selectedFilter">
+
+          <div class="property-image" [ngStyle]="{'background-image': 'url(' + property.mainImage + ')'}">
+            <div class="statusProperty">
+              {{ property.status }}
+            </div>
+          </div>
+
+          <h3 class="property-name">{{property.propertyName}}</h3>
+
+          <div class="property-detail">
+            <span class="detail-label">Address: </span>
+            <span class="detail-value">{{property.streetAddress}}, {{property.suburb}}</span>
+          </div>
+
+          <div class="property-detail">
+            <span class="detail-label">Rent: </span>
+            <span class="detail-value">R{{property.rentAmount | number}}/month</span>
+          </div>
+
+          <div class="property-detail">
+            <span class="detail-label">Nearby University: </span>
+            <span class="detail-value">{{property.university || 'N/A'}}</span>
+          </div>
+
+          <div class="property-detail">
+            <span class="detail-label">Nearby College: </span>
+            <span class="detail-value">{{property.college || 'N/A'}}</span>
+          </div>
+
+          <button class="view-details-btn" 
+                  [routerLink]="['/propertydetailsll/', property.id]">
+            View Details
+          </button>
         </div>
-        <h3 class="property-name">{{property.propertyName}}</h3>
+      </ng-container>
 
-        <div class="property-detail">
-          <span class="detail-label">Address: </span>
-          <span class="detail-value">{{property.streetAddress}}, {{property.suburb}}</span>
+
+      <!-- No Results State -->
+        <div class="empty-state" 
+             *ngIf="(selectedFilter === 'All' && propertyItems.length === 0) || 
+                    (selectedFilter !== 'All' && getFilteredProperties().length === 0)">
+          <div class="empty-state-icon">
+            <i class="bi bi-house-x"></i>
+          </div>
+          <h3>No Properties Found</h3>
+          <p *ngIf="selectedFilter === 'All'">
+            You don't have any properties yet. Click "Add Property" to get started!
+          </p>
+          <p *ngIf="selectedFilter !== 'All'">
+            No properties match the "{{selectedFilter}}" status filter.
+          </p>
+          <button class="add-property-btn-two" (click)="gotoAddProperty()">
+            <i class="bi bi-plus-square-dotted"></i> Add Property
+          </button>
         </div>
 
-        <div class="property-detail">
-          <span class="detail-label">Rent: </span>
-          <span class="detail-value">R{{property.rentAmount | number}}/month</span>
-        </div>
-
-        <div class="property-detail">
-          <span class="detail-label">Nearby University: </span>
-          <span class="detail-value">{{property.university || 'N/A'}}</span>
-        </div>
-
-        <div class="property-detail">
-          <span class="detail-label">Nearby College: </span>
-          <span class="detail-value">{{property.college || 'N/A'}}</span>
-        </div>
-
-        <button class="view-details-btn" 
-                [routerLink]="['/propertydetailsll/', property.id]">
-          View Details
-        </button>
-      </div>
-
-      <!-- Empty state -->
-      <div class="empty-state" *ngIf="propertyItems.length === 0">
-        <p>No properties found. Add your first property!</p>
-      </div>
+      
     </div>
   </div>
 </div>

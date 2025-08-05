@@ -19,12 +19,14 @@ app-nav-dashboard {
 }
 
 .white-main-section {
-  width: 80vw;
-  min-height: 90vh;
+  width: 90%;
+  max-width: 1200px;
+  min-height: auto;
   background-color: #fff;
-  margin: 30px auto;
-  padding: 30px;
-  border-radius: 15px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Typography */

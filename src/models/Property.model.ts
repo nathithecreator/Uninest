@@ -12,7 +12,7 @@ export interface Property {
   postalCode: string;
   province: string;
   type: string; // e.g., "Studio", "Apartment"
-  bedrooms: string;
+  bedrooms: number;
   rentAmount: number;
   status: string; // e.g., "Available", "Occupied", "Partially Occupied"
   occupation: string;
@@ -24,8 +24,8 @@ export interface Property {
   college: string;
   reviewsList: Review[];
   landlordEmail: string;
-  createdAt?: string; // Optional: for tracking when property was added
-  updatedAt?: string; // Optional: for tracking when property was last updated
+  createdAt?: string; 
+  updatedAt?: string; 
 }
 
 export interface Review {

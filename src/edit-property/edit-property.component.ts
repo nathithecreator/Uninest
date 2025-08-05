@@ -21,7 +21,7 @@ export class EditPropertyComponent implements OnInit {
     streetAddress: '',
     type: '',
     rentAmount: 0,
-    bedrooms: '',
+    bedrooms: 0,
     description: '',
     mainImage: '',
     transports: [],
@@ -39,6 +39,11 @@ export class EditPropertyComponent implements OnInit {
     reviewsList: [],
     landlordEmail: ''
   };
+  
+  // Transport and Shops data
+  newTransport = { name: '', description: '' };
+  newShop = { name: '', description: '' };
+  
   imagePreview: string | null = null;
   selectedFile: File | null = null;
   listingFee = 0;
@@ -61,11 +66,47 @@ export class EditPropertyComponent implements OnInit {
         this.property = prop;
         this.imagePreview = this.property.mainImage;
         this.calculateFee();
+        
+        // Initialize transport and shop arrays if they don't exist
+        if (!this.property.transports) {
+          this.property.transports = [];
+        }
+        if (!this.property.shops) {
+          this.property.shops = [];
+        }
       },
       error: (err) => {
         console.error('Error loading property:', err);
       }
     });
+  }
+
+  // Transport methods
+  addTransport(): void {
+    if (this.newTransport.name && this.newTransport.description) {
+      this.property.transports.push({...this.newTransport});
+      this.newTransport = { name: '', description: '' };
+      this.cdRef.detectChanges();
+    }
+  }
+
+  removeTransport(index: number): void {
+    this.property.transports.splice(index, 1);
+    this.cdRef.detectChanges();
+  }
+
+  // Shop methods
+  addShop(): void {
+    if (this.newShop.name && this.newShop.description) {
+      this.property.shops.push({...this.newShop});
+      this.newShop = { name: '', description: '' };
+      this.cdRef.detectChanges();
+    }
+  }
+
+  removeShop(index: number): void {
+    this.property.shops.splice(index, 1);
+    this.cdRef.detectChanges();
   }
 
   onFileSelected(event: Event): void {
@@ -96,7 +137,7 @@ export class EditPropertyComponent implements OnInit {
 
     this.propertyService.updateProperty(this.propertyId, updatedProperty).subscribe({
       next: () => {
-        this.router.navigate(['/dashboard/properties']);
+        this.router.navigate(['/propertiesll']);
       },
       error: (err) => {
         console.error('Error updating property:', err);
@@ -105,6 +146,6 @@ export class EditPropertyComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/dashboard/properties']);
+    this.router.navigate(['/propertiesll']);
   }
 }
