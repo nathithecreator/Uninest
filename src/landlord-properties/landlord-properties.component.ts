@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-landlord-properties',
   standalone: true,
-  imports: [NavDashboardComponent, CommonModule, RouterLink,FormsModule],
+  imports: [NavDashboardComponent, CommonModule, RouterLink, FormsModule],
   templateUrl: './landlord-properties.component.html',
   styleUrls: ['./landlord-properties.component.css']
 })
@@ -23,7 +23,7 @@ export class LandlordPropertiesComponent implements OnInit {
   Revenue: number = 0;
 
   propertyItems: Property[] = [];
-   filteredProperties: Property[] = [];
+  filteredProperties: Property[] = [];
   isLoading = true;
 
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class LandlordPropertiesComponent implements OnInit {
 
   setFilter(filter: string) {
     this.selectedFilter = filter;
-    this.updateStats();
+    this.applyFilters();
   }
 
   onSearchInput() {
@@ -40,12 +40,12 @@ export class LandlordPropertiesComponent implements OnInit {
   }
 
   applyFilters() {
-    // Apply status filter first
+    // First filter by status
     let filtered = this.selectedFilter === 'All' 
       ? [...this.propertyItems] 
       : this.propertyItems.filter(p => p.status === this.selectedFilter);
     
-    // Then apply search query if it exists
+    // Then filter by search query if it exists
     if (this.searchQuery.trim()) {
       const query = this.searchQuery.toLowerCase().trim();
       filtered = filtered.filter(property => 
@@ -54,7 +54,8 @@ export class LandlordPropertiesComponent implements OnInit {
         property.suburb.toLowerCase().includes(query) ||
         property.city.toLowerCase().includes(query) ||
         (property.university && property.university.toLowerCase().includes(query)) ||
-        (property.college && property.college.toLowerCase().includes(query))
+        (property.college && property.college.toLowerCase().includes(query)) ||
+        (property.rentAmount && property.rentAmount.toString().includes(query))
       );
     }
     
@@ -69,7 +70,7 @@ export class LandlordPropertiesComponent implements OnInit {
         this.propertyItems = Array.isArray(data) ? data : [];
         this.filteredProperties = [...this.propertyItems];
         this.isLoading = false;
-        this.updateStats();  // calculate stats after data is loaded
+        this.updateStats();
       },
       error: (error) => {
         console.error('Failed to fetch properties:', error);
@@ -79,16 +80,12 @@ export class LandlordPropertiesComponent implements OnInit {
   }
 
   getFilteredProperties(): Property[] {
-    if (this.selectedFilter === 'All') {
-      return this.propertyItems;
-    }
-    return this.propertyItems.filter(property => property.status === this.selectedFilter);
+    return this.filteredProperties;
   }
 
   updateStats() {
-    const filtered = this.getFilteredProperties();
-    this.totalCountProperties = filtered.length;
-    this.Revenue = filtered.reduce((sum, property) => sum + (property.rentAmount || 0), 0);
+    this.totalCountProperties = this.filteredProperties.length;
+    this.Revenue = this.filteredProperties.reduce((sum, property) => sum + (property.rentAmount || 0), 0);
   }
 
   gotoAddProperty() {

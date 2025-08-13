@@ -21,6 +21,10 @@ export class NavLandlordComponent {
          this.router.navigate(['/LandingPage']);
     }
 
+    goToLoader() {
+         this.router.navigate(['/loader']);
+    }
+
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }

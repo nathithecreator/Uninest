@@ -32,12 +32,10 @@ export class PropertyService {
   return this.http.patch<Property>(`${this.apiUrl}/properties/${id}`, updates);
 }
 
- // Upload image
   uploadImage(formData: FormData): Observable<{ url: string }> {
     return this.http.post<{ url: string }>(`${this.apiUrl}/upload`, formData);
   }
 
-  // Delete property
   deleteProperty(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/properties/${id}`);
   }

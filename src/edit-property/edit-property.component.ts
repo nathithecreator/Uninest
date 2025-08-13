@@ -39,11 +39,10 @@ export class EditPropertyComponent implements OnInit {
     reviewsList: [],
     landlordEmail: ''
   };
-  
-  // Transport and Shops data
+
   newTransport = { name: '', description: '' };
   newShop = { name: '', description: '' };
-  
+
   imagePreview: string | null = null;
   selectedFile: File | null = null;
   listingFee = 0;
@@ -64,16 +63,21 @@ export class EditPropertyComponent implements OnInit {
     this.propertyService.getPropertyById(this.propertyId).subscribe({
       next: (prop) => {
         this.property = prop;
-        this.imagePreview = this.property.mainImage;
-        this.calculateFee();
-        
-        // Initialize transport and shop arrays if they don't exist
+
         if (!this.property.transports) {
           this.property.transports = [];
         }
         if (!this.property.shops) {
           this.property.shops = [];
         }
+
+        this.imagePreview = this.property.mainImage
+          ? (this.property.mainImage.startsWith('data:')
+            ? this.property.mainImage
+            : `https://your-api.com/images/${this.property.mainImage}`) // adjust URL
+          : null;
+
+        this.calculateFee();
       },
       error: (err) => {
         console.error('Error loading property:', err);
@@ -84,7 +88,7 @@ export class EditPropertyComponent implements OnInit {
   // Transport methods
   addTransport(): void {
     if (this.newTransport.name && this.newTransport.description) {
-      this.property.transports.push({...this.newTransport});
+      this.property.transports.push({ ...this.newTransport });
       this.newTransport = { name: '', description: '' };
       this.cdRef.detectChanges();
     }
@@ -98,7 +102,7 @@ export class EditPropertyComponent implements OnInit {
   // Shop methods
   addShop(): void {
     if (this.newShop.name && this.newShop.description) {
-      this.property.shops.push({...this.newShop});
+      this.property.shops.push({ ...this.newShop });
       this.newShop = { name: '', description: '' };
       this.cdRef.detectChanges();
     }
@@ -113,7 +117,7 @@ export class EditPropertyComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
       this.selectedFile = input.files[0];
-      
+
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result as string;
@@ -121,6 +125,11 @@ export class EditPropertyComponent implements OnInit {
       };
       reader.readAsDataURL(this.selectedFile);
     }
+  }
+
+  removeImage(): void {
+    this.imagePreview = null;
+    this.selectedFile = null;
   }
 
   calculateFee(): void {

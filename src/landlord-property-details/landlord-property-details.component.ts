@@ -33,9 +33,9 @@ export class LandlordPropertyDetailsComponent implements OnInit {
           this.isLoading = false;
         },
         error: (error) => {
-          console.error('Failed to load property:', error);
+          console.error('In details Failed to load property:', error);
           this.isLoading = false;
-          // Optionally redirect to properties list
+        
           this.router.navigate(['/propertiesll']);
         }
       });
@@ -48,7 +48,7 @@ export class LandlordPropertyDetailsComponent implements OnInit {
     this.router.navigate(['/propertiesll']);
   }
 
-  editProperty(id: number) {
+  editProperty(id: string) {
     this.router.navigate(['/editproperty', id]);
   }
 

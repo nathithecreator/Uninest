@@ -3,20 +3,20 @@
   <div class="white-main-section">
 
     <!-- Improved Title Section -->
-<div class="title-section">
-  <div class="title-content">
-    <h1 class="dashboard-title"> Properties</h1>
-    <p class="dashboard-subtitle">Manage your properties and monitor key metrics</p>
-  </div>
-  <button class="add-property-btn" (click)="gotoAddProperty()">
-    <i class="bi bi-plus-square-dotted"></i> Add Property
-  </button>
-</div>
+    <div class="title-section">
+      <div class="title-content">
+        <h1 class="dashboard-title">Properties</h1>
+        <p class="dashboard-subtitle">Manage your properties and monitor key metrics</p>
+      </div>
+      <button class="add-property-btn" (click)="gotoAddProperty()">
+        <i class="bi bi-plus-square-dotted"></i> Add Property
+      </button>
+    </div>
 
-<!-- Improved Filtering Section -->
-<div class="filtering-section">
-  <div class="search-filter-container">
-    <div class="search-box">
+    <!-- Improved Filtering Section -->
+    <div class="filtering-section">
+      <div class="search-filter-container">
+        <div class="search-box">
           <i class="bi bi-search search-icon"></i>
           <input 
             id="searchInput" 
@@ -25,85 +25,72 @@
             [(ngModel)]="searchQuery"
             (input)="onSearchInput()">
         </div>
-    <div class="filter-buttons"> 
-  <button 
-    class="filter-btn" 
-    [class.active]="selectedFilter === 'All'" 
-    (click)="setFilter('All')">
-    All
-  </button>
-  
-  <button 
-    class="filter-btn" 
-    [class.active]="selectedFilter === 'Available'" 
-    (click)="setFilter('Available')">
-    Available
-  </button>
-
-  <button 
-    class="filter-btn" 
-    [class.active]="selectedFilter === 'Occupied'" 
-    (click)="setFilter('Occupied')">
-    Occupied
-  </button>
-
-  <button 
-    class="filter-btn" 
-    [class.active]="selectedFilter === 'Vacant'" 
-    (click)="setFilter('Vacant')">
-    Vacant
-  </button>
-
-  <button 
-    class="filter-btn" 
-    [class.active]="selectedFilter === 'Inactive'" 
-    (click)="setFilter('Inactive')">
-    Inactive
-  </button>
-
-  <button 
-    class="filter-btn" 
-    [class.active]="selectedFilter === 'Partially Occupied'" 
-    (click)="setFilter('Partially Occupied')">
-    Partially Occupied
-  </button>
-</div>
-
-  </div>
-  
-  <div class="stats-container">
-    <div class="stat-card">
-      <div class="stat-icon">
-        <i class="bi bi-house-door"></i>
+        <div class="filter-buttons">
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedFilter === 'All'" 
+            (click)="setFilter('All')">
+            All
+          </button>
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedFilter === 'Available'" 
+            (click)="setFilter('Available')">
+            Available
+          </button>
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedFilter === 'Occupied'" 
+            (click)="setFilter('Occupied')">
+            Occupied
+          </button>
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedFilter === 'Vacant'" 
+            (click)="setFilter('Vacant')">
+            Vacant
+          </button>
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedFilter === 'Inactive'" 
+            (click)="setFilter('Inactive')">
+            Inactive
+          </button>
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedFilter === 'Partially Occupied'" 
+            (click)="setFilter('Partially Occupied')">
+            Partially Occupied
+          </button>
+        </div>
       </div>
-      <div class="stat-content">
-        <p class="stat-label">Total </p>
-         <p class="stat-label">Properties </p>
+      
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="bi bi-house-door"></i>
+          </div>
+          <div class="stat-content">
+            <p class="stat-label">Total Properties</p>
+            <p class="stat-value">{{totalCountProperties}}</p>
+          </div>
+        </div>
         
-        <p class="stat-value">{{totalCountProperties}}</p>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="bi bi-cash-stack"></i>
+          </div>
+          <div class="stat-content">
+            <p class="stat-label">Monthly Revenue</p>
+            <p class="stat-value">R {{Revenue}}</p>
+          </div>
+        </div>
       </div>
     </div>
-    
-    <div class="stat-card">
-      <div class="stat-icon">
-        <i class="bi bi-cash-stack"></i>
-      </div>
-      <div class="stat-content">
-        <p class="stat-label">Monthly Revenue</p>
-        <p class="stat-value">R {{Revenue}}</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 
     <div class="properties-section">
-      
-      <ng-container *ngFor="let property of propertyItems">
-        <div 
-          class="property-card" 
-          *ngIf="selectedFilter === 'All' || property.status === selectedFilter">
-
+      <ng-container *ngFor="let property of filteredProperties">
+        <div class="property-card">
           <div class="property-image" [ngStyle]="{'background-image': 'url(' + property.mainImage + ')'}">
             <div class="statusProperty">
               {{ property.status }}
@@ -132,34 +119,33 @@
             <span class="detail-value">{{property.college || 'N/A'}}</span>
           </div>
 
+          <!-- fix my routing -->
           <button class="view-details-btn" 
-                  [routerLink]="['/propertydetailsll/', property.id]">
-            View Details
+                 [routerLink]="['/propertydetailsll', property.id.toString()]">
+            View Details  
           </button>
         </div>
       </ng-container>
 
-
       <!-- No Results State -->
-        <div class="empty-state" 
-             *ngIf="(selectedFilter === 'All' && propertyItems.length === 0) || 
-                    (selectedFilter !== 'All' && getFilteredProperties().length === 0)">
-          <div class="empty-state-icon">
-            <i class="bi bi-house-x"></i>
-          </div>
-          <h3>No Properties Found</h3>
-          <p *ngIf="selectedFilter === 'All'">
-            You don't have any properties yet. Click "Add Property" to get started!
-          </p>
-          <p *ngIf="selectedFilter !== 'All'">
-            No properties match the "{{selectedFilter}}" status filter.
-          </p>
-          <button class="add-property-btn-two" (click)="gotoAddProperty()">
-            <i class="bi bi-plus-square-dotted"></i> Add Property
-          </button>
+      <div class="empty-state" *ngIf="filteredProperties.length === 0">
+        <div class="empty-state-icon">
+          <i class="bi bi-house-x"></i>
         </div>
-
-      
+        <h3>No Properties Found</h3>
+        <p *ngIf="searchQuery.trim()">
+          No properties match your search for "{{searchQuery}}"
+        </p>
+        <p *ngIf="!searchQuery.trim() && selectedFilter !== 'All'">
+          No properties match the "{{selectedFilter}}" status filter.
+        </p>
+        <p *ngIf="!searchQuery.trim() && selectedFilter === 'All'">
+          You don't have any properties yet. Click "Add Property" to get started!
+        </p>
+        <button class="add-property-btn-two" (click)="gotoAddProperty()">
+          <i class="bi bi-plus-square-dotted"></i> Add Property
+        </button>
+      </div>
     </div>
   </div>
 </div>
