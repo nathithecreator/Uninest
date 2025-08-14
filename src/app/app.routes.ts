@@ -21,6 +21,7 @@ import { AboutUsComponent } from '../about-us/about-us.component';
 import { ContactUsComponent } from '../contact-us/contact-us.component';
 import { FaqComponent } from '../faq/faq.component';
 import { LoaderComponent } from '../loader/loader.component';
+import { LoaderDarkComponent } from '../loader-dark/loader-dark.component';
 
 export const routes: Routes = [
         { path: '', redirectTo: 'LandingPage', pathMatch: 'full' },
@@ -45,7 +46,9 @@ export const routes: Routes = [
           { path: 'aboutus', component: AboutUsComponent },
           { path: 'contactus', component: ContactUsComponent },
           { path: 'faq', component: FaqComponent },
-          { path: 'loader', component: LoaderComponent }
+          { path: 'loader', component: LoaderComponent },
+          { path: 'black', component: LoaderDarkComponent }
+
 
 
 ];
