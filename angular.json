@@ -94,6 +94,8 @@
                 "glob": "**/*",
                 "input": "src/assets/",
                 "output": "/assets/"
+                
+  
               },
               {
                 "glob": "**/*",
@@ -109,7 +111,7 @@
             "scripts": [
                 "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
               ]
-
+              
           }
         }
       }
