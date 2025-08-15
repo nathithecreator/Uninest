@@ -21,25 +21,25 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-  {
-    "glob": "**/*",
-    "input": "src/assets/",
-    "output": "/assets/"
-  },
-  {
-    "glob": "**/*",
-    "input": "public"
-  }
-],
-            "styles": [
-  "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-  "src/styles.css"
-],
+                      {
+                        "glob": "**/*",
+                        "input": "src/assets/",
+                        "output": "/assets/"
+                      },
+                      {
+                        "glob": "**/*",
+                        "input": "public"
+                      }
+                    ],
+                        "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "src/styles.css"
+            ],
 
             "scripts": [
-  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-]
+                          "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+                        ]
 
           },
           "configurations": {
@@ -90,25 +90,25 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-  {
-    "glob": "**/*",
-    "input": "src/assets/",
-    "output": "/assets/"
-  },
-  {
-    "glob": "**/*",
-    "input": "public"
-  }
-],
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
             "styles": [
-  "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "node_modules/bootstrap-icons/font/bootstrap-icons.css",
-  "src/styles.css"
-],
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "src/styles.css"
+            ],
 
             "scripts": [
-  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-]
+                "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              ]
 
           }
         }
